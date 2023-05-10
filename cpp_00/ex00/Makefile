@@ -6,15 +6,15 @@
 #    By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 17:08:57 by stena-he          #+#    #+#              #
-#    Updated: 2023/05/10 17:31:10 by stena-he         ###   ########.fr        #
+#    Updated: 2023/05/10 20:09:41 by stena-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compilation
-NAME = megaphone
-CC = c++
-CFLAGS = -Wextra -Wall -Werror -std=c++98
-DEBUG	= -g -fsanitize=address
+NAME 	= 	megaphone
+CC 		= c++
+CFLAGS 	= -Wextra -Wall -Werror -std=c++98
+DEBUG 	= -g -fsanitize=address
 
 # Clean
 RM = rm -rf
