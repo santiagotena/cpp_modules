@@ -6,12 +6,12 @@
 #    By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 21:25:42 by stena-he          #+#    #+#              #
-#    Updated: 2023/05/10 21:25:45 by stena-he         ###   ########.fr        #
+#    Updated: 2023/05/11 16:33:21 by stena-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compilation
-NAME 	= 	megaphone
+NAME 	= phonebook
 CC 		= c++
 CFLAGS 	= -Wextra -Wall -Werror -std=c++98
 DEBUG 	= -g -fsanitize=address
@@ -20,7 +20,10 @@ DEBUG 	= -g -fsanitize=address
 RM = rm -rf
 
 # Source and object files
-SRC =	megaphone.cpp
+SRC =	Contact.cpp \
+		main.cpp \
+		PhoneBook.cpp
+		
 OBJ	=	$(SRC:.cpp=.o)
 
 # Colors
