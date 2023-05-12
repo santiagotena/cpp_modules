@@ -5,12 +5,15 @@ class Sample {
 
 public:
 
-	int	foo;
+	char	a1;
+	int		a2;
+	float	a3;
 
-	Sample(void);
-	~Sample(void);
+	int		b1;
 
-	void	bar(void);
+	Sample( char p1, int p2, float p3);
+	~Sample( void );
+
 };
 
 #endif
