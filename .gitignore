@@ -5,4 +5,5 @@ a.out
 *.o
 
 # Misc
+.vscode
 .DS_Store
