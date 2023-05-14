@@ -10,7 +10,7 @@ public:
 	Sample(void);
 	~Sample(void);
 
-	void	bar(void);
+	void	bar(void) const;
 };
 
 #endif

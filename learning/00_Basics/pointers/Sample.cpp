@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Sample.hpp"
 
-Sample::Sample(void) {
+Sample::Sample(void) : foo(0) {
 	std::cout << "Constructor called" << std::endl;
 	return ;
 }
@@ -11,7 +11,7 @@ Sample::~Sample(void) {
 	return ;
 }
 
-void	Sample::bar(void) {
+void	Sample::bar(void) const {
 	std::cout << "Member function bar called" << std::endl;
 	return ;
 }
