@@ -6,7 +6,18 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:30:28 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/11 16:30:29 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/14 23:14:16 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Contact.hpp"
+
+Contact::Contact(void)
+{
+	return ;
+}
+
+Contact::~Contact(void)
+{
+	return ;
+}
