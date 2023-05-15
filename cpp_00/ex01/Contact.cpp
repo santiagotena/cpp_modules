@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:30:28 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/15 04:59:42 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/15 11:42:42 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,16 @@ int	Contact::setPhoneNumber(void) {
 			std::cout << ERR_EMPTY_FIELD << std::endl;
 		else {
 			try {
-				std::stoi(input);
-			} 
+				if (std::stoi(input) < 0)
+				{
+					std::cout << ERR_NB_OUT_BOUNDS << std::endl;
+					continue ;
+				}
+			}
+			catch (std::out_of_range) {
+				std::cout << ERR_NB_OUT_BOUNDS << std::endl;
+				continue ;
+			}
 			catch (std::invalid_argument) {
 				std::cout << ERR_NOT_A_NUMBER << std::endl;
 				continue ;
@@ -120,26 +128,26 @@ int	Contact::setDarkestSecret(void) {
 	return (0);
 }
 
-std::string	Contact::getContactIndex(void) {
+std::string	Contact::getContactIndex(void) const {
 	return (std::to_string(this->_contactIndex));
 }
 
-std::string	Contact::getFirstName(void) {
+std::string	Contact::getFirstName(void) const {
 	return (this->_firstName);
 }
 
-std::string Contact::getLastName(void) {
+std::string Contact::getLastName(void) const {
 	return(this->_lastName);
 }
 
-std::string	Contact::getNickname(void) {
+std::string	Contact::getNickname(void) const {
 	return(this->_nickname);
 }
 
-std::string Contact::getPhoneNumber(void) {
+std::string Contact::getPhoneNumber(void) const {
 	return(this->_phoneNumber);
 }
 
-std::string	Contact::getDarkestSecret(void) {
+std::string	Contact::getDarkestSecret(void) const {
 	return(this->_darkestSecret);
 }

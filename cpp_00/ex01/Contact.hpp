@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:50:32 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/15 05:11:17 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/15 11:27:45 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define ERR_NOT_A_NUMBER "Error: Input is not a number"
 # define ERR_INVALID_INDEX "Error: Index is out of bounds"
 # define ERR_EMPTY_CONTACT "Error: No contact in that index"
+# define ERR_NB_OUT_BOUNDS "Error: Number is out of bounds"
 
 class Contact
 {
@@ -34,12 +35,12 @@ class Contact
 		int			setPhoneNumber(void);
 		int			setDarkestSecret(void);
 		
-		std::string	getContactIndex(void);
-		std::string	getFirstName(void);
-		std::string	getLastName(void);
-		std::string	getNickname(void);
-		std::string	getPhoneNumber(void);
-		std::string	getDarkestSecret(void);
+		std::string	getContactIndex(void) const ;
+		std::string	getFirstName(void) const;
+		std::string	getLastName(void) const;
+		std::string	getNickname(void) const;
+		std::string	getPhoneNumber(void) const;
+		std::string	getDarkestSecret(void) const;
 
 	private:
 		int			_contactIndex;
