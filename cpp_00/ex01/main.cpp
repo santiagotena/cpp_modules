@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:30:24 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/15 04:25:40 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/15 05:13:26 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ int main(void)
 				std::getline(std::cin, index);
 				if (index.compare("EXIT") == 0 || std::cin.eof())
 					return (0);
-				if (phonebook.displaySingleContact(index) == 0)
+				if (index.empty() || phonebook.displaySingleContact(index) == 0)
 					break ;
 			}
 		} 
 		else
-			std::cout << "Error: Invalid command" << std::endl;
+			std::cout << ERR_INVALID_CMD << std::endl;
 	}
 	return (0);
 }
