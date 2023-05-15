@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:52:06 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/15 00:58:23 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/15 02:39:35 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PHONEBOOK_H
 
 # include "Contact.hpp"
+
+# define BOOK_SIZE 8
 
 class Phonebook {
 	public:
@@ -23,8 +25,9 @@ class Phonebook {
 		int		addContact(void);
 		void	displayHeader(void);
 		void	displayContactList(void);
-		void	displayFooter(void);
-		void	displayContact(int index);
+		void	adjustField(std::string field);
+		void	displayContactInList(int index);
+		void	displaySingleContact(std::string index);
 		
 	private:
 		int		_index;
