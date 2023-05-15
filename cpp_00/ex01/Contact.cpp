@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:30:28 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/15 01:52:06 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/15 03:51:45 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ Contact::~Contact(void)
 {
 	std::cout << "Contact destroyed" << std::endl;
 	return ;
+}
+
+int	Contact::setContactIndex(int index) {
+	this->_contactIndex = index;
+	return (0);
 }
 
 int	Contact::setFirstName(void) {
@@ -115,6 +120,10 @@ int	Contact::setDarkestSecret(void) {
 	}
 	this->_darkestSecret = input;
 	return (0);
+}
+
+std::string	Contact::getContactIndex(void) {
+	return (std::to_string(this->_contactIndex));
 }
 
 std::string	Contact::getFirstName(void) {
