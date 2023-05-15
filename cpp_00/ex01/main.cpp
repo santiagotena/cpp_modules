@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:30:24 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/15 05:13:26 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/15 10:43:45 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(void)
 			if(phonebook.isContactListEmpty())
 				continue ;
 			while (1) {
-				std::cout << "Enter index of contact to expand:" << std::endl;
+				std::cout << "Enter index of contact to expand or press ENTER to return:" << std::endl;
 				std::getline(std::cin, index);
 				if (index.compare("EXIT") == 0 || std::cin.eof())
 					return (0);
