@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:30:28 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/15 03:51:45 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/15 04:59:42 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 Contact::Contact(void)
 {
-	std::cout << "Contact created" << std::endl;
 	return ;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "Contact destroyed" << std::endl;
 	return ;
 }
 
