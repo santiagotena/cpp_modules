@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:30:31 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/15 04:56:07 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/15 11:24:45 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ int	Phonebook::addContact(void) {
 	return (0);
 }
 
-void	Phonebook::displayHeader(void) {
+void	Phonebook::_displayHeader(void) const {
 	std::cout << "|-------------------------------------------|" << std::endl;
     std::cout << "|   Index  |First Name|Last Name | Nickname |" << std::endl;
     std::cout << "|-------------------------------------------|" << std::endl;
 	return ;
 }
 
-void	Phonebook::adjustField(std::string field) {
+void	Phonebook::_adjustField(std::string field) const{
 	std::cout << "|";
 	if (field.length() >= 10)
 		std::cout << field.substr(0, 9) << ".";
@@ -60,11 +60,11 @@ void	Phonebook::adjustField(std::string field) {
 	return ;
 }
 
-void	Phonebook::displayContactInList(int index) {
-	adjustField(this->_contacts[index].getContactIndex());
-	adjustField(this->_contacts[index].getFirstName());
-	adjustField(this->_contacts[index].getLastName());
-	adjustField(this->_contacts[index].getNickname());
+void	Phonebook::_displayContactInList(int index) {
+	_adjustField(this->_contacts[index].getContactIndex());
+	_adjustField(this->_contacts[index].getFirstName());
+	_adjustField(this->_contacts[index].getLastName());
+	_adjustField(this->_contacts[index].getNickname());
 	std::cout << "|" << std::endl;
 	return ;
 }
@@ -74,10 +74,10 @@ bool	Phonebook::isContactListEmpty(void) {
 }
 
 void	Phonebook::displayContactList(void) {
-	displayHeader();
+	_displayHeader();
 	for (int i = 0; i < this->_highestIndex; i++)
 	{
-		displayContactInList(i);
+		_displayContactInList(i);
 		std::cout << "|-------------------------------------------|" << std::endl;
 	}
 	return ;
