@@ -6,7 +6,7 @@
 #    By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 17:08:57 by stena-he          #+#    #+#              #
-#    Updated: 2023/05/11 16:31:13 by stena-he         ###   ########.fr        #
+#    Updated: 2023/05/15 10:40:18 by stena-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ RESET	:= \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(DEBUG) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(DEBUG) $(OBJ) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled successfully.$(RESET)"
 
 clean:
