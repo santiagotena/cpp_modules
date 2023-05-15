@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:30:31 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/15 01:23:49 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/15 01:59:41 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,21 @@ Phonebook::~Phonebook(void) {
 }
 
 int	Phonebook::addContact(void) {	
+	Contact *currentContact;
+	
 	if (this->_index > 7)
 		this->_index = 0;
-
-	// Contact currentContact = this->_contacts[this->_index];
-
-	if (this->_contacts[this->_index].setFirstName() != 0)
+	currentContact = &this->_contacts[this->_index];
+	if (currentContact->setFirstName() != 0)
 		return (-1);
-	if (this->_contacts[this->_index].setLastName() != 0)
+	if (currentContact->setLastName() != 0)
 		return (-1);
-	if (this->_contacts[this->_index].setNickname() != 0)
+	if (currentContact->setNickname() != 0)
 		return (-1);
-	if (this->_contacts[this->_index].setPhoneNumber() != 0)
+	if (currentContact->setPhoneNumber() != 0)
 		return (-1);
-	if (this->_contacts[this->_index].setDarkestSecret() != 0)
+	if (currentContact->setDarkestSecret() != 0)
 		return (-1);
-	
 	this->_index++;
 	return (0);
 }
