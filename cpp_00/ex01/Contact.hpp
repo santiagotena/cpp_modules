@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:50:32 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/15 03:34:20 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/15 05:11:17 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 
+# define ERR_INVALID_CMD "Error: Invalid command"
 # define ERR_EMPTY_FIELD "Error: No empty fields allowed"
 # define ERR_NOT_A_NUMBER "Error: Input is not a number"
 # define ERR_INVALID_INDEX "Error: Index is out of bounds"
