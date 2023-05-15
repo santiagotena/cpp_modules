@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:30:24 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/15 01:01:28 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/15 02:33:53 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(void)
 {
 	Phonebook	phonebook;
 	std::string	command;
+	std::string	index;
 	
 	while (1) {
 		std::cout << "Enter a command: <ADD> <SEARCH> <EXIT>" << std::endl;
@@ -29,12 +30,13 @@ int main(void)
 				return (-1);
 		}
 		else if (command.compare("SEARCH") == 0) {
-			return (0); ///Edit
+			phonebook.displayContactList();
+			std::cout << "Enter index of contact to expand:" << std::endl;
+			std::getline(std::cin, index);
+			phonebook.displaySingleContact(index);
 		} 
-		else {
+		else
 			std::cout << "Error: Invalid command" << std::endl;
-		}
-		
 	}
 	return (0);
 }
