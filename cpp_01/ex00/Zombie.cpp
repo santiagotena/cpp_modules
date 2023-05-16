@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 23:24:05 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/16 12:50:35 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/16 13:06:58 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Zombie::~Zombie(void) {
 	return ;
 }
 
-void	Zombie::announce(void) {
+void	Zombie::announce(void) const {
 	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 	return ;
 }
