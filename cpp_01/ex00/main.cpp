@@ -6,14 +6,15 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 23:24:02 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/15 23:31:10 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/16 00:14:47 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 int	main(void) {
-
-
+	Zombie	zombie;
+	
+	zombie.announce();
 	return (0);
 }
