@@ -6,14 +6,14 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 23:24:03 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/16 13:06:42 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/16 13:08:41 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_H
 # define ZOMBIE_H
 
-#include <iostream>
+# include <iostream>
 
 class	Zombie {
 	public:
