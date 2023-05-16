@@ -6,12 +6,12 @@
 #    By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/15 23:24:00 by stena-he          #+#    #+#              #
-#    Updated: 2023/05/15 23:29:36 by stena-he         ###   ########.fr        #
+#    Updated: 2023/05/16 12:55:03 by stena-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compilation
-NAME 	= executable
+NAME 	= zombies
 CC 		= c++
 CFLAGS 	= -Wextra -Wall -Werror -std=c++98
 DEBUG 	= -g -fsanitize=address
