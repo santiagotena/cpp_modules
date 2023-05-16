@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:10:05 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/16 22:19:13 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/17 00:12:40 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@
 
 class Weapon {
 	public:
-		Weapon(void);
+		Weapon(std::string type);
 		~Weapon(void);
 
-		void		setType(std::string type);
-		std::string	&getType(void) const;
+		void				setType(std::string type);
+		const std::string	&getType(void) const;
 
 	private:
-		std::string const _type;
+		std::string _type;
 };
-
 
 #endif
