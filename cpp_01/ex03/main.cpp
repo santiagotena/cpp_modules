@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:10:03 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/17 00:22:19 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/17 10:20:03 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "HumanB.hpp"
 #include "Weapon.hpp"
 
-int	main(int argc, char **argv) {
+int	main(void) {
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
