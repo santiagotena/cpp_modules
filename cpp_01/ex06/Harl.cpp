@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 17:15:11 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/17 20:39:35 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/17 20:46:02 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	Harl::_info(void)
 
 void	Harl::_warning(void)
 {
-    std::cout << "[WARNING]\nI think I deserve to have some extra bacon for free. I’ve bee"
+    std::cout << "[WARNING]\nI think I deserve to have some extra bacon for free. I have bee"
         "n coming here for years and you just started working here last month."
         << std::endl;
 }
