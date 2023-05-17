@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 10:16:04 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/17 12:39:49 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:44:30 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,16 +100,11 @@ int	main(int argc, char **argv) {
 	fileName = argv[1];
 	oldString = argv[2];
 	newString = argv[3];
-	
 	std::ifstream	inFile(fileName);
-	
 	if (!isInFileValid(inFile))
 		return (-1);
-	
 	content = createContent(inFile); 
-
 	replaceInContent(content, oldString, newString);
-	
 	createOutputFile(fileName, content);
 	return (0);
 }
