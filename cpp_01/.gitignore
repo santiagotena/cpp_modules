@@ -3,3 +3,6 @@ zombies
 refnptrs
 violence
 replace
+
+#output files
+test.txt.replace
