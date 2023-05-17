@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 10:16:04 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/17 12:44:30 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:54:51 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ std::string	createContent(std::ifstream &inFile) {
 		output.append(buffer);
 		output.append("\n");
 	}
+	output.pop_back();
 	inFile.close();
 	return (output);
 }
