@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 23:24:03 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/16 13:08:41 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/17 20:57:55 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class	Zombie {
 		std::string const	_name;
 };
 
-Zombie	*newZombie(std::string);
-void	randomChump(std::string);
+Zombie	*newZombie(std::string name);
+void	randomChump(std::string name);
 
 #endif
