@@ -6,7 +6,7 @@
 #    By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 23:27:48 by stena-he          #+#    #+#              #
-#    Updated: 2023/05/17 23:36:44 by stena-he         ###   ########.fr        #
+#    Updated: 2023/05/18 11:09:35 by stena-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ DEBUG 	= -g -fsanitize=address
 RM = rm -rf
 
 # Source and object files
-SRC =	main.cpp
+SRC =	Fixed.cpp \
+		main.cpp
 		
 OBJ	=	$(SRC:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 23:27:50 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/18 09:10:02 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/18 11:05:28 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@
 class Fixed
 {
 	public:
-		Fixed();
-		Fixed(const Fixed &copy);
-		Fixed & operator=(const Fixed &assign);
-		~Fixed();
+		Fixed(void);
+		Fixed(Fixed const &source);
+		Fixed &operator=(Fixed const &assign);
+		~Fixed(void);
 		
-		void	setRawBits(const int raw);
-		int		getRawBits() const;
+		void	setRawBits(int const raw);
+		int		getRawBits(void) const;
 		
 	private:
-		int					_fixed_point;
-		static const int	_fract_bits = 8;
+		int					_fixedPoint;
+		static const int	_fractionalBits = 8;
 };
 
 #endif
