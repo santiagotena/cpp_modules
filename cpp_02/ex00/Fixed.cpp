@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 23:27:51 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/18 11:18:53 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/18 13:14:03 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ Fixed::Fixed(void): _fixedPoint(0)
 	return ;
 }
 
-Fixed::Fixed(Fixed const &source)
+Fixed::Fixed(Fixed const &other)
 {
 	std::cout << "Copy constructor called." << std::endl;
-	*this = source;
+	*this = other;
 	return ;
 }
 
-Fixed	&Fixed::operator=(Fixed const &assign)
+Fixed	&Fixed::operator=(Fixed const &other)
 {
 	std::cout << "Copy assignment operator called." << std::endl;
-	this->_fixedPoint = assign.getRawBits();
+	this->_fixedPoint = other.getRawBits();
 	return(*this) ;
 }
 
