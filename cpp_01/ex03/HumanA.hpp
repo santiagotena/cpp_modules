@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:10:07 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/16 23:59:32 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/18 19:14:33 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class HumanA {
 
 	private:
 		std::string _name;
-		Weapon		_weapon;
+		Weapon		&_weapon;
 };
 
 #endif
