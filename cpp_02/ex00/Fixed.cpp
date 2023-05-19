@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 23:27:51 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/18 13:14:03 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:46:45 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called." << std::endl;
 	return ;
 }
+
+ bool Fixed::operator==(Fixed const &other) const {
+		return (this->_fixedPoint == other.getRawBits());
+    }
 
 void	Fixed::setRawBits(int const raw)
 {

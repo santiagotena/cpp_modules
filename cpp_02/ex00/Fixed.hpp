@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 23:27:50 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/18 13:13:57 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:45:43 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Fixed
 		Fixed &operator=(Fixed const &other);
 		~Fixed(void);
 		
+		bool	operator==(Fixed const &other) const;
 		void	setRawBits(int const raw);
 		int		getRawBits(void) const;
 		

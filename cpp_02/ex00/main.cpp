@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 23:27:49 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/18 10:56:00 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:48:36 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ int	main(void) {
 	Fixed c;
 
 	c = b;
+
+	bool isEqual = (c == b);
+    std::cout << "Equality: " << (isEqual ? "true" : "false") << std::endl;
 
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
