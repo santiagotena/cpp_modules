@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 23:27:50 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/19 15:45:43 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:31:46 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 # include <iostream>
 # include <string>
 
-class Fixed
-{
+class Fixed {
 	public:
 		Fixed(void);
 		Fixed(Fixed const &other);
