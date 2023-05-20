@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 23:31:17 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/20 13:02:11 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/20 14:29:03 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Fixed
 		bool	operator==(Fixed const &other) const;
 		bool	operator!=(Fixed const &other) const;
 		
-		Fixed	operator+(Fixed const &other) const;///
+		Fixed	operator+(Fixed const &other) const;
 		Fixed	operator-(Fixed const &other) const;
 		Fixed	operator*(Fixed const &other) const;
 		Fixed	operator/(Fixed const &other) const;
