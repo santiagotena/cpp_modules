@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 23:27:51 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/19 16:01:11 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/20 11:55:05 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ Fixed::~Fixed(void)
 	return ;
 }
 
- bool Fixed::operator==(Fixed const &other) const {
-		return (this->_fixedPoint == other.getRawBits());
-    }
+bool Fixed::operator==(Fixed const &other) const {
+	return (this->_fixedPoint == other.getRawBits());
+}
 
 void	Fixed::setRawBits(int const raw)
 {
