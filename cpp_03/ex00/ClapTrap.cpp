@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 10:45:24 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/22 14:02:39 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:22:10 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &other)
 {
 	_name = other._name;
 	_hitPoints = other._hitPoints;
+	_maxHitPoints = other._maxHitPoints;
 	_energyPoints = other._energyPoints;
 	_attackDamage = other._attackDamage;
 	std::cout << "ClapTrap's copy and transfer of data completed." << std::endl;
