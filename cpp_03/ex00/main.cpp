@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 10:45:20 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/22 13:50:17 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:01:53 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(void)
 		yura.attackTarget(jora);
 		yura.checkStatus();
 
+		std::cout << "ClapTrap Yura ran into a wall." << std::endl;
 		yura.takeDamage(5);
 		yura.beRepaired(1);
 		yura.beRepaired(1);
