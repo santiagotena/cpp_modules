@@ -6,13 +6,14 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 10:45:24 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/22 19:22:10 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:55:06 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void) : 
+					_name("Nameless"),
 					_hitPoints(10),
 					_maxHitPoints(10),
 					_energyPoints(10),
