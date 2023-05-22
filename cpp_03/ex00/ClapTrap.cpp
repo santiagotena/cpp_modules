@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 10:45:24 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/22 13:42:25 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:02:39 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "ClapTrap " << _name << " received " << amount << \
 	" points of damage." << std::endl;
 	if (_hitPoints <= 0)
-		std::cout << "ClapTrap " << _name << " has fainted" << std::endl;
+		std::cout << "ClapTrap " << _name << " has fainted." << std::endl;
 	return ;
 }
 
