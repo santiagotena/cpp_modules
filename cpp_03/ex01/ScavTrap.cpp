@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:15:52 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/22 21:32:59 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/22 22:29:32 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ void	ScavTrap::attackTarget(ScavTrap &target)
 
 void	ScavTrap::guardGate(void)
 {
+	if (!_isActionPossible())
+		return ;
 	std::cout << "ScavTrap " << _name << " has entered Gate Keeper Mode." << \
 	std::endl;
 	return ;

@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:15:43 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/22 21:56:44 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/22 22:28:37 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(void)
 		std::cout << "// HP TESTS //" << std::endl;
 		ScavTrap fedia("Fedia");
 
+		fedia.guardGate();
 		fedia.checkStatus();
 		fedia.attack("Jora");
 		fedia.takeDamage(5);
