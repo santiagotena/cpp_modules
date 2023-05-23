@@ -6,4 +6,5 @@ a.out
 
 # Misc
 .vscode
+.idea
 .DS_Store
