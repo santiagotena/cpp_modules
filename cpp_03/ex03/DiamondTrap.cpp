@@ -36,7 +36,7 @@ DiamondTrap::DiamondTrap(std::string name):
 	return ;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &other): ClapTrap(), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(DiamondTrap const &other)
 {
 	*this = other;
 	return ;
