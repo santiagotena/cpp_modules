@@ -6,9 +6,13 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 01:05:35 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/24 01:05:36 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/24 10:43:41 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongCat.hpp"
 
 int main(void)
 {
