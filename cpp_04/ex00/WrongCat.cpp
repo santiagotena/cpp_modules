@@ -15,27 +15,27 @@
 WrongCat::WrongCat(void)
 {
     _type = "WrongCat";
-    std::cout << "A cat has been born." << std::endl;
+    std::cout << "A wrong cat has been born." << std::endl;
     return;
 }
 
 WrongCat::WrongCat(WrongCat const &other)
 {
     *this = other;
-    std::cout << "A cat has been cloned successfully." << std::endl;
+    std::cout << "A wrong cat has been cloned successfully." << std::endl;
     return;
 }
 
 WrongCat &WrongCat::operator=(WrongCat const &other)
 {
     _type = other._type;
-    std::cout << "A cat has become as another." << std::endl;
+    std::cout << "A wrong cat has become as another." << std::endl;
     return (*this);
 }
 
 WrongCat::~WrongCat(void)
 {
-    std::cout << "A cat has been sent to the farm." << std::endl;
+    std::cout << "A wrong cat has been sent to the farm." << std::endl;
     return;
 }
 
@@ -46,6 +46,6 @@ bool    WrongCat::operator==(WrongCat const &other) const
 
 void    WrongCat::makeSound() const
 {
-    std::cout << "*Meow* *Meow*" << std::endl;
+    std::cout << "*Meow?* *Meow?*" << std::endl;
     return;
 }

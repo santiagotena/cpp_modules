@@ -45,7 +45,7 @@ bool    WrongAnimal::operator==(WrongAnimal const &other) const
 
 void    WrongAnimal::makeSound(void) const
 {
-    std::cout << "*A primordial sound goes off in the distance*" << std::endl;
+    std::cout << "*A primordial and wrong sound goes off in the distance*" << std::endl;
     return;
 }
 
