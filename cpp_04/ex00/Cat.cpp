@@ -12,29 +12,30 @@
 
 #include "Cat.hpp"
 
-Cat::Cat(void) : _type("Cat")
+Cat::Cat(void)
 {
-    std::cout << "A Cat has been born." << std::endl;
+    _type = "Cat";
+    std::cout << "A cat has been born." << std::endl;
     return;
 }
 
 Cat::Cat(Cat const &other)
 {
     *this = other;
-    std::cout << "A Cat has been cloned successfully." << std::endl;
+    std::cout << "A cat has been cloned successfully." << std::endl;
     return;
 }
 
 Cat &Cat::operator=(Cat const &other)
 {
     _type = other._type;
-    std::cout << "A Cat has become as another." << std::endl;
+    std::cout << "A cat has become as another." << std::endl;
     return (*this);
 }
 
 Cat::~Cat(void)
 {
-    std::cout << "A Cat has been sent to the farm" << std::endl;
+    std::cout << "A cat has been sent to the farm." << std::endl;
     return;
 }
 

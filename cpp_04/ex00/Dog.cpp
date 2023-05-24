@@ -12,8 +12,9 @@
 
 #include "Dog.hpp"
 
-Dog::Dog(void) : _type("Dog")
+Dog::Dog(void)
 {
+    _type = "Dog";
     std::cout << "A dog has been born." << std::endl;
     return;
 }
@@ -34,7 +35,7 @@ Dog &Dog::operator=(Dog const &other)
 
 Dog::~Dog(void)
 {
-    std::cout << "A dog has been sent to the farm" << std::endl;
+    std::cout << "A dog has been sent to the farm." << std::endl;
     return;
 }
 

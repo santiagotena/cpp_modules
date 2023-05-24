@@ -17,12 +17,27 @@
 int main(void)
 {
     {
-        Dog dog;
-
-
+        std::cout << "// BASE TESTS //" << std::endl;
+        const Animal* meta = new Animal();
+        const Animal* j = new Dog();
+        const Animal* i = new Cat();
+        std::cout << j->getType() << " " << std::endl;
+        std::cout << i->getType() << " " << std::endl;
+        std::cout << meta->getType() << " " << std::endl;
+        i->makeSound(); //will output the cat sound!
+        j->makeSound();
+        meta->makeSound();
     }
     {
+        std::cout << std::string(50, '-') << std::endl;
+        std::cout << "// SOUND TESTS //" << std::endl;
+        Animal animal;
+        Dog dog;
+        Cat cat;
 
+        animal.makeSound();
+        dog.makeSound();
+        cat.makeSound();
     }
     return (0);
 }

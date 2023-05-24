@@ -43,9 +43,13 @@ bool    Animal::operator==(Animal const &other) const
     return (_type == other._type);
 }
 
-void    Animal::makeSound(void)
+void    Animal::makeSound(void) const
 {
     std::cout << "*A primordial sound goes off in the distance*" << std::endl;
     return;
 }
 
+std::string Animal::getType(void) const
+{
+    return (_type);
+}
