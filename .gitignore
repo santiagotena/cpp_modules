@@ -4,6 +4,10 @@ a.out
 #Object files
 *.o
 
+#CMake
+CMakeLists.txt
+cmake-build-debug
+
 # Misc
 .vscode
 .idea
