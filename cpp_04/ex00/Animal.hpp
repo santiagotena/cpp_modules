@@ -24,10 +24,10 @@ public:
     Animal(void);
     Animal(Animal const &other);
     Animal  &operator=(Animal const &other);
-    ~Animal(void);
+    virtual ~Animal(void);
 
     bool            operator==(Animal const &other) const;
-    void virtual    makeSound(void) const;
+    virtual void    makeSound(void) const;
     std::string     getType(void) const;
 };
 

@@ -10,3 +10,46 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "WrongAnimal.hpp"
+
+WrongAnimal::WrongAnimal(void) : _type("Primordial WrongAnimal")
+{
+    std::cout << "A primordial wrong animal has been born." << std::endl;
+    return;
+}
+
+WrongAnimal::WrongAnimal(WrongAnimal const &other)
+{
+    *this = other;
+    std::cout << "A primordial wrong animal has been cloned successfully." << std::endl;
+    return;
+}
+
+WrongAnimal  &WrongAnimal::operator=(WrongAnimal const &other)
+{
+    _type = other._type;
+    std::cout <<  "A primordial wrong animal has become as another." << std::endl;
+    return (*this);
+}
+
+WrongAnimal::~WrongAnimal(void)
+{
+    std::cout << "A primordial wrong animal has been sent to the farm." << std::endl;
+    return;
+}
+
+bool    WrongAnimal::operator==(WrongAnimal const &other) const
+{
+    return (_type == other._type);
+}
+
+void    WrongAnimal::makeSound(void) const
+{
+    std::cout << "*A primordial sound goes off in the distance*" << std::endl;
+    return;
+}
+
+std::string WrongAnimal::getType(void) const
+{
+    return (_type);
+}

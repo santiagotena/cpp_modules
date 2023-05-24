@@ -44,7 +44,7 @@ bool    Cat::operator==(Cat const &other) const
     return (_type == other._type);
 }
 
-void    Cat::makeSound()
+void    Cat::makeSound() const
 {
     std::cout << "*Meow* *Meow*" << std::endl;
     return;

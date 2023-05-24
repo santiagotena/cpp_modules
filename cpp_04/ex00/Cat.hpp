@@ -24,7 +24,7 @@ public:
     ~Cat(void);
 
     bool    operator==(Cat const &other) const;
-    void    makeSound(void);
+    void    makeSound(void) const;
 };
 
 #endif

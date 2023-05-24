@@ -24,7 +24,7 @@ class Dog : public Animal
         ~Dog(void);
 
         bool    operator==(Dog const &other) const;
-        void    makeSound(void);
+        void    makeSound(void) const;
 };
 
 #endif

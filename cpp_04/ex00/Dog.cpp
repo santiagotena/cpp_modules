@@ -44,7 +44,7 @@ bool    Dog::operator==(Dog const &other) const
     return (_type == other._type);
 }
 
-void    Dog::makeSound()
+void    Dog::makeSound() const
 {
     std::cout << "*Woof* *Woof*" << std::endl;
     return;

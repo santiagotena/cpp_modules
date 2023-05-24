@@ -16,8 +16,12 @@
 
 int main(void)
 {
+    std::string partition(50, '-');
+
+    std::cout << partition << std::endl;
+    std::cout << "// BASE TESTS //" << std::endl;
+    std::cout << partition << std::endl;
     {
-        std::cout << "// BASE TESTS //" << std::endl;
         const Animal* meta = new Animal();
         const Animal* j = new Dog();
         const Animal* i = new Cat();
@@ -27,10 +31,14 @@ int main(void)
         i->makeSound(); //will output the cat sound!
         j->makeSound();
         meta->makeSound();
+        delete meta;
+        delete j;
+        delete i;
     }
+    std::cout << partition << std::endl;
+    std::cout << "// SOUND TESTS //" << std::endl;
+    std::cout << partition << std::endl;
     {
-        std::cout << std::string(50, '-') << std::endl;
-        std::cout << "// SOUND TESTS //" << std::endl;
         Animal animal;
         Dog dog;
         Cat cat;
@@ -39,5 +47,53 @@ int main(void)
         dog.makeSound();
         cat.makeSound();
     }
+    std::cout << partition << std::endl;
+    std::cout << "// WRONGANIMAL TESTS //" << std::endl;
+    std::cout << partition << std::endl;
+    {
+        WrongAnimal wrongA;
+        WrongCat    catA;
+
+        std::cout << wrongA.getType() << std::endl;
+        wrongA.makeSound();
+        std::cout << catA.getType() << std::endl;
+        catA.makeSound();
+
+        WrongAnimal *wrongB = new WrongCat;
+        WrongCat *catB = new WrongCat;
+
+        std::cout << wrongB->getType() <<std::endl;
+        wrongB->makeSound();
+        std::cout << catB->getType() <<std::endl;
+        catB->makeSound();
+        delete wrongB;
+        delete catB;
+
+        Animal *animal = new Cat;
+        Cat *cat = new Cat;
+
+        std::cout << animal->getType() <<std::endl;
+        animal->makeSound();
+        std::cout << cat->getType() <<std::endl;
+        cat->makeSound();
+        delete animal;
+        delete cat;
+    }
+    std::cout << partition << std::endl;
+    std::cout << "// DESTRUCTION TESTS //" << std::endl;
+    std::cout << partition << std::endl;
+    {
+        Cat cat;
+
+        std::cout << cat.getType() << std::endl;
+        cat.makeSound();
+
+        Cat* gato = new Cat;
+
+        std::cout << gato->getType() <<std::endl;
+        gato->makeSound();
+        delete gato;
+    }
+    std::cout << partition << std::endl;
     return (0);
 }
