@@ -16,5 +16,13 @@
 
 int main(void)
 {
+    {
+        Dog dog;
+
+
+    }
+    {
+
+    }
     return (0);
 }

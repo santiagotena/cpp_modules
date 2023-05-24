@@ -13,7 +13,7 @@
 # Compilation
 NAME 	= animals
 CC 		= c++
-CFLAGS 	= -Wextra -Wall -Werror -std=c++98
+CFLAGS 	= -Wextra -Wall -Werror -std=c++98 -pedantic
 DEBUG 	= -g -fsanitize=address
 
 # Clean
@@ -23,7 +23,9 @@ RM = rm -rf
 SRC =	Animal.cpp \
 		Cat.cpp \
 		Dog.cpp \
-		main.cpp
+		main.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 

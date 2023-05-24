@@ -10,3 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Cat.hpp"
+
+Cat::Cat(void) : _type("Cat")
+{
+    std::cout << "A Cat has been born." << std::endl;
+    return;
+}
+
+Cat::Cat(Cat const &other)
+{
+    *this = other;
+    std::cout << "A Cat has been cloned successfully." << std::endl;
+    return;
+}
+
+Cat &Cat::operator=(Cat const &other)
+{
+    _type = other._type;
+    std::cout << "A Cat has become as another." << std::endl;
+    return (*this);
+}
+
+Cat::~Cat(void)
+{
+    std::cout << "A Cat has been sent to the farm" << std::endl;
+    return;
+}
+
+bool    Cat::operator==(Cat const &other) const
+{
+    return (_type == other._type);
+}
+
+void    Cat::makeSound()
+{
+    std::cout << "*Meow* *Meow*" << std::endl;
+    return;
+}
