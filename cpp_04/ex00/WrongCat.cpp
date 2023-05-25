@@ -19,7 +19,7 @@ WrongCat::WrongCat(void)
     return;
 }
 
-WrongCat::WrongCat(WrongCat const &other)
+WrongCat::WrongCat(WrongCat const &other): WrongAnimal(other)
 {
     *this = other;
     std::cout << "A wrong cat has been cloned successfully." << std::endl;

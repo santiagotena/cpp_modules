@@ -19,7 +19,7 @@ Cat::Cat(void)
     return;
 }
 
-Cat::Cat(Cat const &other): Animal()
+Cat::Cat(Cat const &other): Animal(other)
 {
     *this = other;
     std::cout << "A cat has been cloned successfully." << std::endl;
