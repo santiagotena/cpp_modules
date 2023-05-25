@@ -20,8 +20,9 @@ Cat::Cat(void)
     return;
 }
 
-Cat::Cat(Cat const &other): Animal()
+Cat::Cat(Cat const &other): Animal(other)
 {
+    _brain = new Brain();
     *this = other;
     std::cout << "A cat has been cloned successfully." << std::endl;
     return;
@@ -30,6 +31,7 @@ Cat::Cat(Cat const &other): Animal()
 Cat &Cat::operator=(Cat const &other)
 {
     _type = other._type;
+    *_brain = *other._brain;
     std::cout << "A cat has become as another." << std::endl;
     return (*this);
 }

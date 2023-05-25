@@ -22,6 +22,7 @@ Dog::Dog(void)
 
 Dog::Dog(Dog const &other): Animal()
 {
+    _brain = new Brain();
     *this = other;
     std::cout << "A dog has been cloned successfully." << std::endl;
     return;
@@ -30,6 +31,7 @@ Dog::Dog(Dog const &other): Animal()
 Dog &Dog::operator=(Dog const &other)
 {
     _type = other._type;
+    *_brain = *other._brain;
     std::cout << "A dog has become as another." << std::endl;
     return (*this);
 }
