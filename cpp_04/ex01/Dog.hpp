@@ -25,10 +25,10 @@ public:
     Dog(void);
     Dog(Dog const &other);
     Dog &operator=(Dog const &other);
-    ~Dog(void);
+    virtual ~Dog(void);
 
-    bool    operator==(Dog const &other) const;
-    void    makeSound(void) const;
+    bool            operator==(Dog const &other) const;
+    virtual void    makeSound(void) const;
 };
 
 #endif

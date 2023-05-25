@@ -25,10 +25,10 @@ public:
     Cat(void);
     Cat(Cat const &other);
     Cat &operator=(Cat const &other);
-    ~Cat(void);
+    virtual ~Cat(void);
 
-    bool    operator==(Cat const &other) const;
-    void    makeSound(void) const;
+    bool            operator==(Cat const &other) const;
+    virtual void    makeSound(void) const;
 };
 
 #endif
