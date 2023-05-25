@@ -34,7 +34,7 @@ FragTrap::FragTrap(std::string name)
 	return ;
 }
 
-FragTrap::FragTrap(FragTrap const &other)
+FragTrap::FragTrap(FragTrap const &other) : ClapTrap(other)
 {
 	*this = other;
 	std::cout << "FragTrap created from blueprint." << std::endl;

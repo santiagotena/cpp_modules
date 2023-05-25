@@ -34,7 +34,7 @@ ScavTrap::ScavTrap(std::string name)
 	return ;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &other)
+ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other)
 {
 	*this = other;
 	std::cout << "ScavTrap created from blueprint." << std::endl;
