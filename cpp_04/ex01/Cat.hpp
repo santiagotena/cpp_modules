@@ -29,6 +29,8 @@ public:
 
     bool            operator==(Cat const &other) const;
     virtual void    makeSound(void) const;
+    void            setIdea(int index, std::string idea);
+    std::string     getIdea(int index) const;
 };
 
 #endif

@@ -53,3 +53,26 @@ void    Cat::makeSound() const
     std::cout << "*Meow* *Meow*" << std::endl;
     return;
 }
+
+void    Cat::setIdea(int index, std::string idea)
+{
+    if (index < 0 || index >= 100)
+    {
+        std::cout << "That idea cannot be stored there." << std::endl;
+        return ;
+    }
+    else
+        _brain->setIdea(index, idea);
+    return;
+}
+
+std::string Cat::getIdea(int index) const
+{
+    if (index < 0 || index >= 100)
+    {
+        std::cout << "No thoughts there." << std::endl;
+        return (NULL);
+    }
+    else
+        return (_brain->getIdea(index));
+}

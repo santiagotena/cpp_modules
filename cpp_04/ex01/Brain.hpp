@@ -17,7 +17,7 @@
 
 class Brain
 {
-private:
+protected:
     std::string   _ideas[100];
 
 public:
@@ -26,7 +26,9 @@ public:
     Brain &operator=(Brain const &other);
     ~Brain();
 
-    bool operator==(Brain const &other) const;
+    bool        operator==(Brain const &other) const;
+    void        setIdea(int index, std::string idea);
+    std::string getIdea(int index) const;
 };
 
 #endif
