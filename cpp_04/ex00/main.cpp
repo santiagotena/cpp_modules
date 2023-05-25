@@ -81,5 +81,5 @@ int main(void)
     }
     std::cout << partition << std::endl;
     return (0);
-
 }
+
