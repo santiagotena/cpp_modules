@@ -46,6 +46,6 @@ bool    WrongCat::operator==(WrongCat const &other) const
 
 void    WrongCat::makeSound() const
 {
-    std::cout << "*Meow?* *Meow?*" << std::endl;
+    std::cout << "*Meow?*" << std::endl;
     return;
 }

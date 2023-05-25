@@ -19,7 +19,7 @@ Dog::Dog(void)
     return;
 }
 
-Dog::Dog(Dog const &other)
+Dog::Dog(Dog const &other): Animal()
 {
     *this = other;
     std::cout << "A dog has been cloned successfully." << std::endl;

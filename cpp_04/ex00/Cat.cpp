@@ -19,7 +19,7 @@ Cat::Cat(void)
     return;
 }
 
-Cat::Cat(Cat const &other)
+Cat::Cat(Cat const &other): Animal()
 {
     *this = other;
     std::cout << "A cat has been cloned successfully." << std::endl;
@@ -46,6 +46,6 @@ bool    Cat::operator==(Cat const &other) const
 
 void    Cat::makeSound() const
 {
-    std::cout << "*Meow* *Meow*" << std::endl;
+    std::cout << "*Meow*" << std::endl;
     return;
 }
