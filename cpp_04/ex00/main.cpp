@@ -23,34 +23,34 @@ int main(void)
     std::cout << partition << std::endl;
     {
         const Animal* meta = new Animal();
-        const Animal* j = new Dog();
         const Animal* i = new Cat();
+        const Animal* j = new Dog();
         std::cout << meta->getType() << " " << std::endl;
-        std::cout << j->getType() << " " << std::endl;
         std::cout << i->getType() << " " << std::endl;
+        std::cout << j->getType() << " " << std::endl;
         meta->makeSound();
-        j->makeSound();
         i->makeSound(); //will output the cat sound!
+        j->makeSound();
         delete meta;
-        delete j;
         delete i;
+        delete j;
     }
     std::cout << partition << std::endl;
     std::cout << "// WRONG DESTRUCTION //" << std::endl;
     std::cout << partition << std::endl;
     {
         const WrongAnimal* meta = new WrongAnimal();
-        const WrongAnimal* j = new WrongCat();
         const WrongCat* i = new WrongCat();
+        const WrongAnimal* j = new WrongCat();
         std::cout << meta->getType() << " " << std::endl;
-        std::cout << j->getType() << " " << std::endl;
         std::cout << i->getType() << " " << std::endl;
+        std::cout << j->getType() << " " << std::endl;
         meta->makeSound();
-        j->makeSound();
         i->makeSound();
+        j->makeSound();//Unexpected behavior here
         delete meta;
-        delete j;
         delete i;
+        delete j;//Unexpected behavior here
     }
     std::cout << partition << std::endl;
     std::cout << "// SOUND TESTS //" << std::endl;
@@ -81,4 +81,5 @@ int main(void)
     }
     std::cout << partition << std::endl;
     return (0);
+
 }
