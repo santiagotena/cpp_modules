@@ -1,0 +1,177 @@
+cmake_minimum_required(VERSION 3.25)
+project(cpp_modules)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(cpp_00/ex01)
+include_directories(cpp_00/files)
+include_directories(cpp_01/ex00)
+include_directories(cpp_01/ex01)
+include_directories(cpp_01/ex03)
+include_directories(cpp_01/ex05)
+include_directories(cpp_01/ex06)
+include_directories(cpp_02/ex00)
+include_directories(cpp_02/ex01)
+include_directories(cpp_02/ex02)
+include_directories(cpp_03/ex00)
+include_directories(cpp_03/ex01)
+include_directories(cpp_03/ex02)
+include_directories(cpp_03/ex03)
+include_directories(cpp_04/ex00)
+include_directories(cpp_04/ex01)
+include_directories(cpp_04/ex02)
+include_directories(cpp_04/ex03)
+include_directories(learning/00_Basics/class_sample)
+include_directories(learning/00_Basics/comparisons)
+include_directories(learning/00_Basics/const_sample)
+include_directories(learning/00_Basics/get_and_set)
+include_directories(learning/00_Basics/init_list)
+include_directories(learning/00_Basics/pointers)
+include_directories(learning/00_Basics/static)
+include_directories(learning/00_Basics/visibility)
+include_directories(learning/02/ad_hoc_polym)
+
+add_executable(cpp_modules
+        cpp_00/ex00/megaphone.cpp
+        cpp_00/ex01/Contact.cpp
+        cpp_00/ex01/Contact.hpp
+        cpp_00/ex01/main.cpp
+        cpp_00/ex01/PhoneBook.cpp
+        cpp_00/ex01/PhoneBook.hpp
+        cpp_00/files/Account.hpp
+        cpp_00/files/tests.cpp
+        cpp_01/ex00/main.cpp
+        cpp_01/ex00/newZombie.cpp
+        cpp_01/ex00/randomChump.cpp
+        cpp_01/ex00/Zombie.cpp
+        cpp_01/ex00/Zombie.hpp
+        cpp_01/ex01/main.cpp
+        cpp_01/ex01/Zombie.cpp
+        cpp_01/ex01/Zombie.hpp
+        cpp_01/ex01/zombieHorde.cpp
+        cpp_01/ex02/main.cpp
+        cpp_01/ex03/HumanA.cpp
+        cpp_01/ex03/HumanA.hpp
+        cpp_01/ex03/HumanB.cpp
+        cpp_01/ex03/HumanB.hpp
+        cpp_01/ex03/main.cpp
+        cpp_01/ex03/Weapon.cpp
+        cpp_01/ex03/Weapon.hpp
+        cpp_01/ex04/main.cpp
+        cpp_01/ex05/Harl.cpp
+        cpp_01/ex05/Harl.hpp
+        cpp_01/ex05/main.cpp
+        cpp_01/ex06/Harl.cpp
+        cpp_01/ex06/Harl.hpp
+        cpp_01/ex06/main.cpp
+        cpp_02/ex00/Fixed.cpp
+        cpp_02/ex00/Fixed.hpp
+        cpp_02/ex00/main.cpp
+        cpp_02/ex01/Fixed.cpp
+        cpp_02/ex01/Fixed.hpp
+        cpp_02/ex01/main.cpp
+        cpp_02/ex02/Fixed.cpp
+        cpp_02/ex02/Fixed.hpp
+        cpp_02/ex02/main.cpp
+        cpp_03/ex00/ClapTrap.cpp
+        cpp_03/ex00/ClapTrap.hpp
+        cpp_03/ex00/main.cpp
+        cpp_03/ex01/ClapTrap.cpp
+        cpp_03/ex01/ClapTrap.hpp
+        cpp_03/ex01/main.cpp
+        cpp_03/ex01/ScavTrap.cpp
+        cpp_03/ex01/ScavTrap.hpp
+        cpp_03/ex02/ClapTrap.cpp
+        cpp_03/ex02/ClapTrap.hpp
+        cpp_03/ex02/FragTrap.cpp
+        cpp_03/ex02/FragTrap.hpp
+        cpp_03/ex02/main.cpp
+        cpp_03/ex03/ClapTrap.cpp
+        cpp_03/ex03/ClapTrap.hpp
+        cpp_03/ex03/DiamondTrap.cpp
+        cpp_03/ex03/DiamondTrap.hpp
+        cpp_03/ex03/FragTrap.cpp
+        cpp_03/ex03/FragTrap.hpp
+        cpp_03/ex03/main.cpp
+        cpp_03/ex03/ScavTrap.cpp
+        cpp_03/ex03/ScavTrap.hpp
+        cpp_04/ex00/Animal.cpp
+        cpp_04/ex00/Animal.hpp
+        cpp_04/ex00/Cat.cpp
+        cpp_04/ex00/Cat.hpp
+        cpp_04/ex00/Dog.cpp
+        cpp_04/ex00/Dog.hpp
+        cpp_04/ex00/main.cpp
+        cpp_04/ex00/WrongAnimal.cpp
+        cpp_04/ex00/WrongAnimal.hpp
+        cpp_04/ex00/WrongCat.cpp
+        cpp_04/ex00/WrongCat.hpp
+        cpp_04/ex01/Animal.cpp
+        cpp_04/ex01/Animal.hpp
+        cpp_04/ex01/Brain.cpp
+        cpp_04/ex01/Brain.hpp
+        cpp_04/ex01/Cat.cpp
+        cpp_04/ex01/Cat.hpp
+        cpp_04/ex01/Dog.cpp
+        cpp_04/ex01/Dog.hpp
+        cpp_04/ex01/main.cpp
+        cpp_04/ex02/Animal.cpp
+        cpp_04/ex02/Animal.hpp
+        cpp_04/ex02/Brain.cpp
+        cpp_04/ex02/Brain.hpp
+        cpp_04/ex02/Cat.cpp
+        cpp_04/ex02/Cat.hpp
+        cpp_04/ex02/Dog.cpp
+        cpp_04/ex02/Dog.hpp
+        cpp_04/ex02/main.cpp
+        cpp_04/ex03/AMateria.cpp
+        cpp_04/ex03/AMateria.hpp
+        cpp_04/ex03/Character.cpp
+        cpp_04/ex03/Character.hpp
+        cpp_04/ex03/ICharacter.hpp
+        cpp_04/ex03/IMateriaSource.hpp
+        cpp_04/ex03/main.cpp
+        cpp_04/ex03/MateriaSource.cpp
+        cpp_04/ex03/MateriaSource.hpp
+        learning/00_Basics/class_sample/main.cpp
+        learning/00_Basics/class_sample/Sample.cpp
+        learning/00_Basics/class_sample/Sample.hpp
+        learning/00_Basics/comparisons/main.cpp
+        learning/00_Basics/comparisons/Sample.cpp
+        learning/00_Basics/comparisons/Sample.hpp
+        learning/00_Basics/const_sample/main.cpp
+        learning/00_Basics/const_sample/Sample.cpp
+        learning/00_Basics/const_sample/Sample.hpp
+        learning/00_Basics/get_and_set/main.cpp
+        learning/00_Basics/get_and_set/Sample.cpp
+        learning/00_Basics/get_and_set/Sample.hpp
+        learning/00_Basics/init_list/main.cpp
+        learning/00_Basics/init_list/Sample.cpp
+        learning/00_Basics/init_list/Sample.hpp
+        learning/00_Basics/pointers/main.cpp
+        learning/00_Basics/pointers/Sample.cpp
+        learning/00_Basics/pointers/Sample.hpp
+        learning/00_Basics/static/main.cpp
+        learning/00_Basics/static/Sample.cpp
+        learning/00_Basics/static/Sample.hpp
+        learning/00_Basics/visibility/main.cpp
+        learning/00_Basics/visibility/Sample.cpp
+        learning/00_Basics/visibility/Sample.hpp
+        learning/00_Basics/cpp_00.cpp
+        learning/00_Basics/hello.cpp
+        learning/01_Basics2/filestream/fstream1.cpp
+        learning/01_Basics2/new_delete/new.cpp
+        learning/01_Basics2/new_delete/new2.cpp
+        learning/01_Basics2/references/ref1.cpp
+        learning/01_Basics2/references/ref2.cpp
+        learning/01_Basics2/references/ref3.cpp
+        learning/02/ad_hoc_polym/main.cpp
+        learning/02/ad_hoc_polym/Sample.cpp
+        learning/02/ad_hoc_polym/Sample.hpp
+        learning/02/canonical_form/main.cpp
+        learning/02/operator_overload/main.cpp
+        learning/03_Inheritance/heritage.cpp
+        learning/03_Inheritance/heritage2.cpp
+        learning/04_Polymorphism/poly1.cpp
+        learning/04_Polymorphism/poly1_virtual.cpp
+        learning/04_Polymorphism/poly2.cpp cpp_04/ex03/Cure.cpp cpp_04/ex03/Cure.hpp cpp_04/ex03/Ice.cpp cpp_04/ex03/Ice.hpp)
