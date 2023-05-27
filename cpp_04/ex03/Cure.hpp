@@ -18,8 +18,8 @@
 
 class Cure : public AMateria
 {
-private:
-    std::string     _type;
+//private:
+//    std::string     _type;
 
 public:
     Cure();
