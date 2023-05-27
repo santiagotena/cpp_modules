@@ -54,8 +54,8 @@ void    MateriaSource::learnMateria(AMateria *m) {
     for (int i = 0; i < MEMORY_SIZE; i++) {
         if (_inventory[i] == NULL) {
             _inventory[i] = m->clone();
+            std::cout << "Materia Source has memorized " << _inventory[i]->getType() << " materia in slot " << i << "." << std::endl;
             delete m;
-            std::cout << "Materia Source has memorized " << m->getType() << " materia in slot " << i << "." << std::endl;
             return;
         }
     }
@@ -65,8 +65,11 @@ void    MateriaSource::learnMateria(AMateria *m) {
 
 AMateria    *MateriaSource::createMateria(std::string const &type) {
     for (int i = 0; i < MEMORY_SIZE; i++) {
-        if (_inventory[i]->getType() == type) {
-            std::cout << "Materia Source has created a materia of type: " << _inventory[i]->getType() << "." << std::endl;
+        if (_inventory[i]) {
+            if (_inventory[i]->getType() == type) {
+                std::cout << "Materia Source has created a materia of type: " << _inventory[i]->getType() << "." << std::endl;
+                return _inventory[i]->clone();
+            }
         }
     }
     std::cout << "No materia of that type exists in memory." << std::endl;

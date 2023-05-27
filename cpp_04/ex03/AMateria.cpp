@@ -12,7 +12,7 @@
 
 #include "AMateria.hpp"
 
-AMateria::AMateria() : _type("base materia.") {};
+AMateria::AMateria() : _type("base materia") {};
 
 AMateria::AMateria(std::string const &type) : _type(type) {};
 

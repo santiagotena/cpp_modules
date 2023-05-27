@@ -79,6 +79,10 @@ std::string const   &Character::getName() const {
 }
 
 void    Character::equip(AMateria *m) {
+    if (m == NULL) {
+        std::cout << "No materia to equip." << std::endl;
+        return;
+    }
     for (int i = 0; i < INVENTORY_SIZE; i++) {
         if (_inventory[i] == NULL) {
             _inventory[i] = m;
