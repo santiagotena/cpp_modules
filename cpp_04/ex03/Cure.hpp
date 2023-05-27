@@ -14,13 +14,21 @@
 # define CURE_HPP
 
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
-class Cure {
+class Cure : public AMateria
+{
 private:
-    std::string _type;
+    std::string     _type;
 
 public:
+    Cure();
+    Cure(Cure const &other);
+    Cure    &operator=(Cure const &other);
+    virtual ~Cure();
 
+    virtual AMateria    *clone() const;
+    virtual void        use(ICharacter &target);
 };
 
 #endif

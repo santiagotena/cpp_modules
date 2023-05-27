@@ -10,3 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
+
+#include "AMateria.hpp"
+
+class MateriaSource {
+private:
+
+public:
+    MateriaSource();
+//    Copy constructors
+    ~MateriaSource();
+    void learnMateria(AMateria*);
+    AMateria* createMateria(std::string const & type);
+
+};
+
+#endif
