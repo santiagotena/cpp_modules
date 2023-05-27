@@ -10,3 +10,65 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "MateriaSource.hpp"
+
+void    MateriaSource::_nullInventory() {
+    for (int i = 0; i < MEMORY_SIZE; i++)
+        _inventory[i] = NULL;
+}
+
+MateriaSource::MateriaSource() {
+    _nullInventory();
+}
+
+MateriaSource::MateriaSource(MateriaSource const &other) {
+    _nullInventory();
+    *this = other;
+}
+
+MateriaSource   &MateriaSource::operator=(MateriaSource const &other) {
+    for (int i = 0; i < MEMORY_SIZE; i++)
+    {
+        if (_inventory[i])
+            delete _inventory[i];
+        if (other._inventory[i])
+            _inventory[i] = other._inventory[i]->clone();
+        else
+            _inventory[i] = NULL;
+    }
+    return (*this);
+}
+
+MateriaSource::~MateriaSource() {
+    for (int i = 0; i < MEMORY_SIZE; i++)
+    {
+        if (_inventory[i])
+        {
+            delete _inventory[i];
+            _inventory[i] = NULL;
+        }
+    }
+}
+
+void    MateriaSource::learnMateria(AMateria *m) {
+    for (int i = 0; i < MEMORY_SIZE; i++) {
+        if (_inventory[i] == NULL) {
+            _inventory[i] = m->clone();
+            delete m;
+            std::cout << "Materia Source has memorized " << m->getType() << " materia in slot " << i << "." << std::endl;
+            return;
+        }
+    }
+    std::cout << "There are no available memory slots at Materia Source." << std::endl;
+    delete m;
+}
+
+AMateria    *MateriaSource::createMateria(std::string const &type) {
+    for (int i = 0; i < MEMORY_SIZE; i++) {
+        if (_inventory[i]->getType() == type) {
+            std::cout << "Materia Source has created a materia of type: " << _inventory[i]->getType() << "." << std::endl;
+        }
+    }
+    std::cout << "No materia of that type exists in memory." << std::endl;
+    return NULL;
+}

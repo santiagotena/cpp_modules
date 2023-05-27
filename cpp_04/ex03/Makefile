@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # Compilation
-NAME 	= animals
+NAME 	= materia
 CC 		= c++
 CFLAGS 	= -Wextra -Wall -Werror -std=c++98 -pedantic
 DEBUG 	= -g -fsanitize=address

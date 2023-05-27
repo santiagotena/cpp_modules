@@ -15,12 +15,19 @@
 
 # include "AMateria.hpp"
 
-class Ice {
+class Ice : public AMateria
+{
 private:
-    std::string _type;
+    std::string     _type;
 
 public:
+    Ice();
+    Ice(Ice const &other);
+    Ice     &operator=(Ice const &other);
+    virtual ~Ice();
 
+    virtual AMateria    *clone() const;
+    virtual void        use(ICharacter &target);
 };
 
 #endif

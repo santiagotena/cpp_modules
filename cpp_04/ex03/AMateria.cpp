@@ -14,9 +14,9 @@
 
 AMateria::AMateria() : _type("base materia.") {};
 
-AMateria::AMateria(const std::string &type) : _type(type) {};
+AMateria::AMateria(std::string const &type) : _type(type) {};
 
-AMateria::AMateria(const AMateria &other) {
+AMateria::AMateria(AMateria const &other) {
     *this = other;
 }
 

@@ -16,20 +16,31 @@
 # include "ICharacter.hpp"
 # include "AMateria.hpp"
 
-class Character {
+# define INVENTORY_SIZE 4
+# define STORAGE_SIZE 100
+
+class Character : public ICharacter
+{
 private:
     std::string     _name;
-    AMateria        *_inventory[4];
-    AMateria        *_storage[100];
+    AMateria        *_inventory[INVENTORY_SIZE];
+    AMateria        *_storage[STORAGE_SIZE];
+
+    void            _nullInventoryAndStorage();
 
 public:
     Character();
     Character(std::string name);
-    //Copy constructors, both, need to create deep copies
-    //Materias need to be deleted before the new ones are added to their inventory
-    ~Character(); // Delete Materias
+    Character(Character const &other);
+    Character   &operator=(Character const &other);
+    ~Character();
 
+    virtual std::string const   &getName() const;
+    virtual void                equip(AMateria *m);
+    virtual void                unequip(int idx);
+    virtual void                use(int idx, ICharacter &target);
+    void                        displayInventory() const;
+    void                        displayStorage() const;
 };
-
 
 #endif

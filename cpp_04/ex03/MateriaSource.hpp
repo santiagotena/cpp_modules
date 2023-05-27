@@ -13,18 +13,26 @@
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
-#include "AMateria.hpp"
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
-class MateriaSource {
+# define MEMORY_SIZE 4
+
+class MateriaSource : public IMateriaSource
+{
 private:
+    AMateria    *_inventory[MEMORY_SIZE];
+
+    void        _nullInventory();
 
 public:
     MateriaSource();
-//    Copy constructors
+    MateriaSource(MateriaSource const &other);
+    MateriaSource   &operator=(MateriaSource const &other);
     ~MateriaSource();
+
     void learnMateria(AMateria*);
     AMateria* createMateria(std::string const & type);
-
 };
 
 #endif
