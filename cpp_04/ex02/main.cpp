@@ -34,5 +34,20 @@ int main(void)
 //        Animal human;
     }
     std::cout << partition << std::endl;
+    std::cout << "// DEEP COPIES //" << std::endl;
+    std::cout << partition << std::endl;
+    {
+        Dog dog;
+        Dog perro(dog);
+        Dog tmp = dog;
+
+        dog.setIdea(0, "Who is a good boy?");
+        perro.setIdea(0, "Ball!");
+        tmp.setIdea(0, "Squirrel!");
+        std::cout << dog.getIdea(0) << std::endl;
+        std::cout << perro.getIdea(0) << std::endl;
+        std::cout << tmp.getIdea(0) << std::endl;
+    }
+    std::cout << partition << std::endl;
     return (0);
 }
