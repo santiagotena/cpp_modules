@@ -36,7 +36,7 @@ int main(void)
         delete j;
     }
     std::cout << partition << std::endl;
-    std::cout << "// WRONG DESTRUCTION //" << std::endl;
+    std::cout << "// WRONG SOUND //" << std::endl;
     std::cout << partition << std::endl;
     {
         const WrongAnimal* meta = new WrongAnimal();
@@ -50,7 +50,7 @@ int main(void)
         j->makeSound();//Unexpected behavior here
         delete meta;
         delete i;
-        delete j;//Unexpected behavior here
+        delete j;
     }
     std::cout << partition << std::endl;
     std::cout << "// SOUND TESTS //" << std::endl;

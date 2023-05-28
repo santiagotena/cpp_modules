@@ -24,7 +24,7 @@ public:
     WrongAnimal(void);
     WrongAnimal(WrongAnimal const &other);
     WrongAnimal  &operator=(WrongAnimal const &other);
-    ~WrongAnimal(void);
+    virtual ~WrongAnimal(void);
 
     bool            operator==(WrongAnimal const &other) const;
     void            makeSound(void) const;

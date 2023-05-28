@@ -21,7 +21,7 @@ public:
     WrongCat(void);
     WrongCat(WrongCat const &other);
     WrongCat &operator=(WrongCat const &other);
-    ~WrongCat(void);
+    virtual ~WrongCat(void);
 
     bool    operator==(WrongCat const &other) const;
     void    makeSound(void) const;
