@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:31:56 by stena-he          #+#    #+#             */
-/*   Updated: 2023/05/26 11:31:57 by stena-he         ###   ########.fr       */
+/*   Updated: 2023/05/28 16:18:55 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ int main()
         cloud.displayStorage();
 
         delete src;
+        delete tmp;
     }
     std::cout << partition << std::endl;
     return 0;
