@@ -174,4 +174,4 @@ add_executable(cpp_modules
         learning/03_Inheritance/heritage2.cpp
         learning/04_Polymorphism/poly1.cpp
         learning/04_Polymorphism/poly1_virtual.cpp
-        learning/04_Polymorphism/poly2.cpp cpp_04/ex03/Cure.cpp cpp_04/ex03/Cure.hpp cpp_04/ex03/Ice.cpp cpp_04/ex03/Ice.hpp)
+        learning/04_Polymorphism/poly2.cpp cpp_04/ex03/Cure.cpp cpp_04/ex03/Cure.hpp cpp_04/ex03/Ice.cpp cpp_04/ex03/Ice.hpp learning/05_Nested_Exceptions/exceptions.cpp learning/05_Nested_Exceptions/nested.cpp cpp_05/ex00/Bureaucrat.hpp cpp_05/ex00/main.cpp cpp_05/ex00/Bureaucrat.cpp)
