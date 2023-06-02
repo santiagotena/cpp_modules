@@ -33,17 +33,20 @@ int main(void)
     {
         Dog dog;
         Dog perro(dog);
+        Dog tmp = dog;
 
         dog.setIdea(0, "Who is a good boy?");
         perro.setIdea(0, "Ball!");
+        tmp.setIdea(0, "Squirrel!");
         std::cout << dog.getIdea(0) << std::endl;
         std::cout << perro.getIdea(0) << std::endl;
+        std::cout << tmp.getIdea(0) << std::endl;
     }
     std::cout << partition << std::endl;
     std::cout << "// ANIMAL ARRAY //" << std::endl;
     std::cout << partition << std::endl;
     {
-        int size = 4;
+        int size = 6;
         Animal  *pets[size];
 
         for (int i = 0; i < size/2; i++)

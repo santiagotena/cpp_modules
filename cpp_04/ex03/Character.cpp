@@ -99,8 +99,8 @@ void    Character::unequip(int idx) {
     for (int i = 0; i < STORAGE_SIZE; i++) {
         if (_storage[i] == NULL) {
             _storage[i] = _inventory[idx];
-            _inventory[idx] = NULL;
             std::cout << "One " << _inventory[idx]->getType() << " materia was placed in storage." << std::endl;
+            _inventory[idx] = NULL;
             return;
         }
     }

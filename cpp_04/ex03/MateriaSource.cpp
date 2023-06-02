@@ -75,3 +75,14 @@ AMateria    *MateriaSource::createMateria(std::string const &type) {
     std::cout << "No materia of that type exists in memory." << std::endl;
     return NULL;
 }
+
+void    MateriaSource::displayMemory() const {
+    std::cout << "Memory:" << std::endl;
+    for (int i = 0; i < MEMORY_SIZE; i++) {
+        if (_inventory[i] != NULL) {
+            std::cout << "Slot #" << i << ": " << _inventory[i]->getType() << " materia." << std::endl;
+        }
+        else
+            return;
+    }
+}
