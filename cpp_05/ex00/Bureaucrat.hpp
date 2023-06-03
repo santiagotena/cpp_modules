@@ -14,6 +14,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+
 # define TOPGRADE 1
 # define BOTTOMGRADE 150
 
