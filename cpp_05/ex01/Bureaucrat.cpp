@@ -38,11 +38,11 @@ int Bureaucrat::getGrade() const {
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
-    return ("The set grade is higher than the top position.\n");
+    return ("The set grade is higher than the top position.");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
-    return ("The set grade is below the bottom position.\n");
+    return ("The set grade is below the bottom position.");
 }
 
 void Bureaucrat::setGrade(int grade) {

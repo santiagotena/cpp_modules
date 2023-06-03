@@ -34,7 +34,7 @@ int main(){
         std::cerr << e.what();
     }
     std::cout << partition << std::endl;
-    std::cout << "// SET TESTS ABOVE //" << std::endl;
+    std::cout << "// SET GRADE ABOVE //" << std::endl;
     std::cout << partition << std::endl;
     try{
         Bureaucrat("Xopo", 0);
@@ -43,7 +43,7 @@ int main(){
         std::cerr << e.what();
     }
     std::cout << partition << std::endl;
-    std::cout << "// SET TESTS BELOW //" << std::endl;
+    std::cout << "// SET GRADE BELOW //" << std::endl;
     std::cout << partition << std::endl;
     try{
         Bureaucrat("Xopo", 420);
