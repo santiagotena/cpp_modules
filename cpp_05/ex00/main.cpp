@@ -15,7 +15,11 @@
 int main(){
     try{
         Bureaucrat plancton;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
+            plancton.incrementGrade();
+            std::cout << plancton;
+        }
+        for (int i = 0; i < 5; i++) {
             plancton.decrementGrade();
             std::cout << plancton;
         }

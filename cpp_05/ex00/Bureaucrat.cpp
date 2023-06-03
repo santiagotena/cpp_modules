@@ -46,23 +46,24 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 void Bureaucrat::setGrade(int grade) {
-    if (grade > HIGHGRADE)
+    if (_grade < HIGHGRADE)
         throw GradeTooLowException();
-    if (grade < LOWGRADE)
+    if (_grade > LOWGRADE)
         throw GradeTooHighException();
     _grade = grade;
 }
 
 void Bureaucrat::incrementGrade() {
-    _grade++;
+    setGrade(_grade - 1);
 }
 
 void Bureaucrat::decrementGrade() {
-    _grade--;
+    setGrade(_grade + 1);
 }
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &input)
 {
+
     output << input.getName() << ", bureaucrat grade " << input.getGrade() << "." << std::endl;
     return (output);
 }
