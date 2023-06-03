@@ -47,6 +47,6 @@ public:
     };
 };
 
-std::ostream &operator<<(std::ostream &output, const Bureaucrat &input);
+std::ostream &operator<<(std::ostream &output, Bureaucrat const &input);
 
 #endif
