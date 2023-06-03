@@ -1,0 +1,3 @@
+/Users/santiago/Code/github/cpp_modules/cmake-build-debug/CMakeFiles/cpp_modules.dir
+/Users/santiago/Code/github/cpp_modules/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/santiago/Code/github/cpp_modules/cmake-build-debug/CMakeFiles/rebuild_cache.dir
