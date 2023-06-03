@@ -37,19 +37,19 @@ int Bureaucrat::getGrade() const {
     return (_grade);
 }
 
-const char *Bureaucrat::GradeAboveTopException::what() const throw() {
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
     return ("The set grade is higher than the top position.\n");
 }
 
-const char *Bureaucrat::GradeBelowBottomException::what() const throw() {
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
     return ("The set grade is below the bottom position.\n");
 }
 
 void Bureaucrat::setGrade(int grade) {
     if (grade < TOPGRADE)
-        throw GradeAboveTopException();
+        throw GradeTooHighException();
     if (grade > BOTTOMGRADE)
-        throw GradeBelowBottomException();
+        throw GradeTooLowException();
     _grade = grade;
 }
 

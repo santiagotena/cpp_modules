@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 # include <iostream>
 # define TOPGRADE 1
@@ -34,13 +35,13 @@ public:
     void        incrementGrade();
     void        decrementGrade();
 
-    class GradeAboveTopException: public std::exception
+    class GradeTooHighException: public std::exception
     {
     public:
         const char* what() const throw();
     };
 
-    class GradeBelowBottomException: public std::exception
+    class GradeTooLowException: public std::exception
     {
     public:
         const char* what() const throw();
