@@ -54,11 +54,11 @@ void Bureaucrat::setGrade(int grade) {
 }
 
 void Bureaucrat::incrementGrade() {
-    setGrade(_grade - 1);
+    setGrade(--_grade);
 }
 
 void Bureaucrat::decrementGrade() {
-    setGrade(_grade + 1);
+    setGrade(++_grade);
 }
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &input)

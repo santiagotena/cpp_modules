@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # Compilation
-NAME 	= bureaucrat
+NAME 	= bureaucrats
 CC 		= c++
 CFLAGS 	= -Wextra -Wall -Werror -std=c++98 -pedantic
 DEBUG 	= -g -fsanitize=address
