@@ -54,8 +54,8 @@ void    MateriaSource::learnMateria(AMateria *m) {
     for (int i = 0; i < MEMORY_SIZE; i++) {
         if (_inventory[i] == NULL) {
             _inventory[i] = m->clone();
-            std::cout << "Materia Source has memorized " << _inventory[i]->getType() << " materia in slot " << i << "." << std::endl;
             delete m;
+            std::cout << "Materia Source has memorized " << _inventory[i]->getType() << " materia in slot " << i << "." << std::endl;
             return;
         }
     }
