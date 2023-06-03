@@ -12,7 +12,7 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void)
+ScavTrap::ScavTrap(void): ClapTrap()
 {
 	_name = "Nameless";
 	_hitPoints = 100;
@@ -23,7 +23,7 @@ ScavTrap::ScavTrap(void)
 	return ;
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	_name = name;
 	_hitPoints = 100;

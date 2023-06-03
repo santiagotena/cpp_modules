@@ -12,7 +12,7 @@
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void)
+FragTrap::FragTrap(void): ClapTrap()
 {
 	_name = "Nameless";
 	_hitPoints = 100;
@@ -23,7 +23,7 @@ FragTrap::FragTrap(void)
 	return ;
 }
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	_name = name;
 	_hitPoints = 100;
@@ -34,7 +34,7 @@ FragTrap::FragTrap(std::string name)
 	return ;
 }
 
-FragTrap::FragTrap(FragTrap const &other) : ClapTrap(other)
+FragTrap::FragTrap(FragTrap const &other): ClapTrap(other)
 {
 	*this = other;
 	std::cout << "FragTrap created from blueprint." << std::endl;
