@@ -12,13 +12,13 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(): _name("Nameless"), _grade(LOWGRADE) {}
+Bureaucrat::Bureaucrat(): _name("Nameless"), _grade(BOTTOMGRADE) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name) {
     setGrade(grade);
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &src) {
+Bureaucrat::Bureaucrat(Bureaucrat const &src): _name(src._name) {
     *this = src;
 }
 
@@ -37,19 +37,19 @@ int Bureaucrat::getGrade() const {
     return (_grade);
 }
 
-const char *Bureaucrat::GradeTooHighException::what() const throw() {
-    return ("The grade is too high.\n");
+const char *Bureaucrat::GradeAboveTopException::what() const throw() {
+    return ("The set grade is higher than the top position.\n");
 }
 
-const char *Bureaucrat::GradeTooLowException::what() const throw() {
-    return ("The grade is too low.\n");
+const char *Bureaucrat::GradeBelowBottomException::what() const throw() {
+    return ("The set grade is below the bottom position.\n");
 }
 
 void Bureaucrat::setGrade(int grade) {
-    if (_grade < HIGHGRADE)
-        throw GradeTooLowException();
-    if (_grade > LOWGRADE)
-        throw GradeTooHighException();
+    if (grade < TOPGRADE)
+        throw GradeAboveTopException();
+    if (grade > BOTTOMGRADE)
+        throw GradeBelowBottomException();
     _grade = grade;
 }
 
@@ -64,6 +64,6 @@ void Bureaucrat::decrementGrade() {
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &input)
 {
 
-    output << input.getName() << ", bureaucrat grade " << input.getGrade() << "." << std::endl;
+    output << input.getName() << ", bureaucrat grade " << input.getGrade() << ".";
     return (output);
 }

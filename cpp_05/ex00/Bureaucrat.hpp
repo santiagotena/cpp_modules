@@ -13,8 +13,8 @@
 #ifndef BUREAUCRAT_HPP
 
 # include <iostream>
-# define HIGHGRADE 1
-# define LOWGRADE 150
+# define TOPGRADE 1
+# define BOTTOMGRADE 150
 
 class Bureaucrat {
 private:
@@ -34,13 +34,13 @@ public:
     void        incrementGrade();
     void        decrementGrade();
 
-    class GradeTooHighException: public std::exception
+    class GradeAboveTopException: public std::exception
     {
     public:
         const char* what() const throw();
     };
 
-    class GradeTooLowException: public std::exception
+    class GradeBelowBottomException: public std::exception
     {
     public:
         const char* what() const throw();
