@@ -34,7 +34,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(DEBUG) $(OBJ) -o $(NAME)
-	@echo "$(GREEN)Executable <$(NAME)> compiled successfully.$(RESET)"
+	@echo "$(GREEN)Compiled the <$(NAME)> executable.$(RESET)"
 
 clean:
 	@$(RM) $(OBJ)

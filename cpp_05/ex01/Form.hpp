@@ -16,6 +16,8 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
 private:
     std::string const   _name;
@@ -23,8 +25,14 @@ private:
     int const           _requiredSignGrade;
     int const           _requiredExecuteGrade;
 
+    void                _checkFormGrades();
+
 public:
-    // Add canonical form
+    Form();
+    Form(const std::string &name, const int requiredSignGrade, const int requiredExecuteGrade);
+    Form(Form const &src);
+    Form &operator=(Form const &src);
+    ~Form();
 
     std::string const   getName() const;
     bool                getIsSigned() const;
@@ -46,6 +54,6 @@ public:
     };
 };
 
-std::ostream &operator<<(std::ostream &output, Bureaucrat const &input);
+std::ostream &operator<<(std::ostream &output, Form const &input);
 
 # endif

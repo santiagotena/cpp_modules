@@ -61,9 +61,18 @@ void Bureaucrat::decrementGrade() {
     setGrade(++_grade);
 }
 
+void Bureaucrat::signForm(Form &form) {
+    if (_grade <= form.getRequiredSignGrade()) {
+        form.beSigned(*this);
+        std::cout << _name << " signed " << form.getName() << std::endl;
+    } else {
+        std::cout << _name << " could not sign " << form.getName() <<
+        ". Clearance level is not high enough." << std::endl;
+    }
+}
+
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &input)
 {
-
     output << input.getName() << ", bureaucrat grade " << input.getGrade() << ".";
     return (output);
 }
