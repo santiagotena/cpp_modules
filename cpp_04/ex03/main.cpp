@@ -139,7 +139,6 @@ int main()
         cloud.displayStorage();
 
         delete src;
-        delete tmp;
     }
     std::cout << partition << std::endl;
     return 0;
