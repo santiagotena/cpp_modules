@@ -12,7 +12,7 @@
 
 #include "Dog.hpp"
 
-Dog::Dog(void)
+Dog::Dog(void): Animal()
 {
     _type = "Dog";
     std::cout << "A dog has been born." << std::endl;
@@ -20,7 +20,7 @@ Dog::Dog(void)
     return;
 }
 
-Dog::Dog(Dog const &other): Animal()
+Dog::Dog(Dog const &other): Animal(other)
 {
     _brain = new Brain();
     *this = other;

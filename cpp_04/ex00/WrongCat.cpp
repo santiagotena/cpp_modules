@@ -12,7 +12,7 @@
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(void)
+WrongCat::WrongCat(void): WrongAnimal()
 {
     _type = "WrongCat";
     std::cout << "A wrong cat has been born." << std::endl;

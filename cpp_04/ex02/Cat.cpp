@@ -12,7 +12,7 @@
 
 #include "Cat.hpp"
 
-Cat::Cat(void)
+Cat::Cat(void): Animal()
 {
     _type = "Cat";
     std::cout << "A cat has been born." << std::endl;
