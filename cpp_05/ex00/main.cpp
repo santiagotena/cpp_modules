@@ -13,20 +13,58 @@
 #include "Bureaucrat.hpp"
 
 int main(){
+    std::string partition(50, '-');
+
+    std::cout << partition << std::endl;
+    std::cout << "// INC & DEC TESTS //" << std::endl;
+    std::cout << partition << std::endl;
     try{
         Bureaucrat plancton;
-        std::cout << plancton;
+        std::cout << plancton << std::endl;
         for (int i = 0; i < 5; i++) {
             plancton.incrementGrade();
-            std::cout << plancton;
+            std::cout << plancton << std::endl;
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             plancton.decrementGrade();
-            std::cout << plancton;
+            std::cout << plancton << std::endl;
         }
+    }
+    catch(std::exception &e){
+        std::cerr << e.what();
+    }
+    std::cout << partition << std::endl;
+    std::cout << "// SET TESTS ABOVE //" << std::endl;
+    std::cout << partition << std::endl;
+    try{
+        Bureaucrat("Xopo", 0);
+    }
+    catch(std::exception &e){
+        std::cerr << e.what();
+    }
+    std::cout << partition << std::endl;
+    std::cout << "// SET TESTS BELOW //" << std::endl;
+    std::cout << partition << std::endl;
+    try{
         Bureaucrat("Xopo", 420);
     }
     catch(std::exception &e){
         std::cerr << e.what();
     }
+    std::cout << partition << std::endl;
+    std::cout << "// COPY CONSTRUCTION //" << std::endl;
+    std::cout << partition << std::endl;
+    {
+        Bureaucrat xopo("Xopo", 100);
+        Bureaucrat topXopo(xopo);
+        Bureaucrat bottomXopo = xopo;
+
+        topXopo.incrementGrade();
+        std::cout << topXopo << std::endl;
+
+        bottomXopo.decrementGrade();
+        std::cout << bottomXopo << std::endl;
+    }
+    std::cout << partition << std::endl;
+    return (0);
 }
