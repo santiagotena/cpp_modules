@@ -189,4 +189,4 @@ add_executable(cpp_modules
         learning/05_Nested_Exceptions/exceptions.cpp
         learning/05_Nested_Exceptions/nested.cpp
         learning/Inheritance_Polym/inheritance.cpp
-        cpp_05/ex02/Bureaucrat.cpp cpp_05/ex02/Bureaucrat.hpp cpp_05/ex02/AForm.cpp cpp_05/ex02/AForm.hpp cpp_05/ex02/main.cpp)
+        cpp_05/ex02/Bureaucrat.cpp cpp_05/ex02/Bureaucrat.hpp cpp_05/ex02/AForm.cpp cpp_05/ex02/AForm.hpp cpp_05/ex02/main.cpp cpp_05/ex02/RobotomyRequestForm.cpp cpp_05/ex02/ShrubberyCreationForm.cpp cpp_05/ex02/PresidentialPardonForm.cpp cpp_05/ex02/PresidentialPardonForm.hpp cpp_05/ex02/RobotomyRequestForm.hpp cpp_05/ex02/ShrubberyCreationForm.hpp)
