@@ -38,11 +38,11 @@ int Bureaucrat::getGrade() const {
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
-    return ("The set grade is higher than the top position.");
+    return ("Exception: The set grade is higher than the top position.");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
-    return ("The set grade is below the bottom position.");
+    return ("Exception: The set grade is below the bottom position.");
 }
 
 void Bureaucrat::setGrade(int grade) {
@@ -62,13 +62,17 @@ void Bureaucrat::decrementGrade() {
 }
 
 void Bureaucrat::signForm(Form &form) {
+    if (form.getIsSigned()) {
+        std::cout << "This form is already signed." << std::endl;
+        return;
+    }
     if (_grade <= form.getRequiredSignGrade()) {
-        form.beSigned(*this);
-        std::cout << _name << " signed " << form.getName() << std::endl;
+        std::cout << _name << " signed " << form.getName() << "." << std::endl;
     } else {
         std::cout << _name << " could not sign " << form.getName() <<
         ". Clearance level is not high enough." << std::endl;
     }
+    form.beSigned(*this);
 }
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &input)
