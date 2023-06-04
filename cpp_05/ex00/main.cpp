@@ -12,7 +12,7 @@
 
 #include "Bureaucrat.hpp"
 
-int main(){
+int main() {
     std::string partition(50, '-');
 
     std::cout << partition << std::endl;
@@ -33,6 +33,7 @@ int main(){
     catch(std::exception &e){
         std::cerr << e.what();
     }
+    std::cout << std::endl;
     std::cout << partition << std::endl;
     std::cout << "// SET GRADE ABOVE //" << std::endl;
     std::cout << partition << std::endl;
@@ -42,6 +43,7 @@ int main(){
     catch(std::exception &e){
         std::cerr << e.what();
     }
+    std::cout << std::endl;
     std::cout << partition << std::endl;
     std::cout << "// SET GRADE BELOW //" << std::endl;
     std::cout << partition << std::endl;
@@ -51,6 +53,7 @@ int main(){
     catch(std::exception &e){
         std::cerr << e.what();
     }
+    std::cout << std::endl;
     std::cout << partition << std::endl;
     std::cout << "// COPY CONSTRUCTION //" << std::endl;
     std::cout << partition << std::endl;
