@@ -20,9 +20,12 @@ DEBUG 	= -g -fsanitize=address
 RM = rm -rf
 
 # Source and object files
-SRC =	Bureaucrat.cpp \
-		AForm.cpp \
-		main.cpp
+SRC =	AForm.cpp \
+		Bureaucrat.cpp \
+		main.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 

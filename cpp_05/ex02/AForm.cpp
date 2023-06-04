@@ -17,20 +17,21 @@ void AForm::_checkFormGrades() {
         throw AForm::GradeTooHighException();
     if (_requiredSignGrade > BOTTOMGRADE || _requiredExecuteGrade > BOTTOMGRADE)
         throw AForm::GradeTooLowException();
-
 }
 
 AForm::AForm():
     _name("Untitled Form"),
     _isSigned(false),
     _requiredSignGrade(TOPGRADE),
-    _requiredExecuteGrade(TOPGRADE) {}
+    _requiredExecuteGrade(TOPGRADE),
+    _target("undefined"){}
 
-AForm::AForm(std::string const &name, int const requiredSignGrade, int const requiredExecuteGrade) :
+AForm::AForm(std::string const &name, int const requiredSignGrade, int const requiredExecuteGrade, std::string target) :
     _name(name),
     _isSigned(false),
     _requiredSignGrade(requiredSignGrade),
-    _requiredExecuteGrade(requiredExecuteGrade)
+    _requiredExecuteGrade(requiredExecuteGrade),
+    _target(target)
 {
     _checkFormGrades();
 }
@@ -39,13 +40,15 @@ AForm::AForm(AForm const &src):
     _name(src._name),
     _isSigned(src._isSigned),
     _requiredSignGrade(src._requiredSignGrade),
-    _requiredExecuteGrade(src._requiredExecuteGrade)
+    _requiredExecuteGrade(src._requiredExecuteGrade),
+    _target(src._target)
 {
     *this = src;
 }
 
 AForm &AForm::operator=(AForm const &src) {
     _isSigned = src._isSigned;
+    _target = src._target;
     return (*this);
 }
 
@@ -59,7 +62,13 @@ int const           AForm::getRequiredSignGrade() const {return(_requiredSignGra
 
 int const           AForm::getRequiredExecuteGrade() const {return(_requiredExecuteGrade);}
 
-void                AForm::beSigned(Bureaucrat const &bureaucrat) {
+std::string         AForm::getTarget() const {return (_target);}
+
+void                AForm::setIsSigned(bool boolean) {_isSigned = boolean;}
+
+void                AForm::setTarget(std::string target) {_target = target;}
+
+void AForm::beSigned(Bureaucrat const &bureaucrat) {
     if (_isSigned) {
         std::cout << "This form is already signed." << std::endl;
         return;
@@ -71,11 +80,11 @@ void                AForm::beSigned(Bureaucrat const &bureaucrat) {
 }
 
 const char *AForm::GradeTooHighException::what() const throw() {
-    return ("The grade is higher than the top position.");
+    return ("Exception: The grade is too high.");
 }
 
 const char *AForm::GradeTooLowException::what() const throw() {
-    return ("The grade is below the bottom position.");
+    return ("Exception: The grade is too low.");
 }
 
 std::ostream &operator<<(std::ostream &output, AForm const &input)
