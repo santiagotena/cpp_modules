@@ -14,13 +14,13 @@
 
 PresidentialPardonForm::PresidentialPardonForm():
     AForm::AForm("Presidential Pardon Form",
-                 25 ,
+                 25,
                  5,
                  "undefined") {}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target):
         AForm::AForm("Presidential Pardon Form",
-                     25 ,
+                     25,
                      5,
                      target) {}
 
