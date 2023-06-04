@@ -29,7 +29,7 @@ private:
 
 public:
     Form();
-    Form(const std::string &name, const int requiredSignGrade, const int requiredExecuteGrade);
+    Form(std::string const &name, int const requiredSignGrade, int const requiredExecuteGrade);
     Form(Form const &src);
     Form &operator=(Form const &src);
     ~Form();
