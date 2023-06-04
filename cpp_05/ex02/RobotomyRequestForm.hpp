@@ -13,7 +13,6 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
-# include <iostream>
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
 
