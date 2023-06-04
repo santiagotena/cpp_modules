@@ -12,15 +12,15 @@
 
 #include "Bureaucrat.hpp"
 
-int main(){
+int main() {
     std::string partition(50, '-');
 
     std::cout << partition << std::endl;
     std::cout << "// SIGNED GRADES LIMITS //" << std::endl;
     std::cout << partition << std::endl;
     {
-        Form datform("Test Form", 98, 23);
-        std::cout << datform << std::endl;
+        Form form("Test Form", 98, 23);
+        std::cout << form << std::endl;
     }
     std::cout << partition << std::endl;
     std::cout << "// SIGNED GRADES LIMITS //" << std::endl;
@@ -80,8 +80,20 @@ int main(){
         tom.signForm(form);
         std::cout << form << std::endl;
         std::cout << std::endl;
-        jerry.signForm(form2);
+
+        try
+        {
+            jerry.signForm(form2);
+            std::cout << form2 << std::endl;
+        }
+        catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
         std::cout << form2 << std::endl;
+        std::cout << std::endl;
+
+        tom.signForm(form);
     }
     std::cout << partition << std::endl;
     return (0);
