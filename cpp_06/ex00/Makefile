@@ -6,12 +6,12 @@
 #    By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/05 20:16:50 by stena-he          #+#    #+#              #
-#    Updated: 2023/06/05 20:16:51 by stena-he         ###   ########.fr        #
+#    Updated: 2023/06/06 18:27:17 by stena-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compilation
-NAME 	= casts
+NAME 	= convert
 CC 		= c++
 CFLAGS 	= -Wextra -Wall -Werror -std=c++98 -pedantic
 DEBUG 	= -g -fsanitize=address
@@ -21,6 +21,7 @@ RM = rm -rf
 
 # Source and object files
 SRC =	main.cpp \
+		ScalarConverter.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 
