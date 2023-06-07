@@ -37,30 +37,24 @@ void	Harl::complain(std::string level) {
 		&Harl::_warning,
 		&Harl::_error
 	};
-	for (int i = 0; i < 4 ; i++) {
-		if (commentLevels[i] == level) {
-			switch (i) {
-				case 0:
-					while (i < 4)
-						(this->*functions[i++])();
-					return ;
-				case 1:
-					while (i < 4)
-						(this->*functions[i++])();
-					return ;
-				case 2:
-					while (i < 4)
-						(this->*functions[i++])();
-					return ;
-				case 3:
-					while (i < 4)
-						(this->*functions[i++])();
-					return ;	
-			}
-		}		
-	}
-	std::cout << "This is unexpected behavior from Harl." << std::endl;	
-	return ;
+    int i = 0;
+	for (; i < 4 ; i++) {
+        if (commentLevels[i] == level)
+            break;
+    }
+    switch (i) {
+        case 0:
+            (this->*functions[0])();
+        case 1:
+            (this->*functions[1])();
+        case 2:
+            (this->*functions[2])();
+        case 3:
+            (this->*functions[3])();
+        default:
+            std::cout << "This is unexpected behavior from Harl." << std::endl;
+    }
+	return;
 }
 
 void	Harl::_debug(void)
