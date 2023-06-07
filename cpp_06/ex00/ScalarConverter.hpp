@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <iomanip>
-# include <cmath>
 
 # define ERR_ARGC           "Error: Enter only one argument."
 # define ERR_INVALID_INPUT  "Error: Invalid Input."
