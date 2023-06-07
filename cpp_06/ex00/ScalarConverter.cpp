@@ -26,10 +26,10 @@ ScalarConverter &ScalarConverter::operator=(ScalarConverter const &src)
 
 ScalarConverter::~ScalarConverter() {}
 
-void    displayConversion(char charachter, bool isIntPossible, int integerNumber, float floatNumber, double doubleNumber)
+void    displayConversion(char character, bool isIntPossible, int integerNumber, float floatNumber, double doubleNumber)
 {
-    if (charachter > 32 && charachter < 127)
-        std::cout <<    "char: '" <<  charachter << "' "<< std::endl <<
+    if (character > 32 && character < 127)
+        std::cout <<    "char: '" <<  character << "' "<< std::endl <<
                         "int: " << integerNumber << std::endl <<
                         "float: " << std::fixed << std::setprecision(1) << floatNumber <<"f" << std::endl <<
                         "double: " << std::fixed << std::setprecision(1) << doubleNumber << std::endl;
@@ -48,25 +48,25 @@ void    displayConversion(char charachter, bool isIntPossible, int integerNumber
 void    handleDouble(double doubleNumber)
 {
     float floatNumber = static_cast<float>(doubleNumber);
-    char charachter = static_cast<char>(doubleNumber);
+    char character = static_cast<char>(doubleNumber);
     int integerNumber = static_cast<int>(doubleNumber);
-    displayConversion(charachter, 1, integerNumber, floatNumber, doubleNumber);
+    displayConversion(character, 1, integerNumber, floatNumber, doubleNumber);
 }
 
 void    handleFloat(float floatNumber)
 {
-    char charachter = static_cast<char>(floatNumber);
+    char character = static_cast<char>(floatNumber);
     double doubleNumber = static_cast<double>(floatNumber);
     int integerNumber = static_cast<int>(floatNumber);
-    displayConversion(charachter, 1, integerNumber, floatNumber, doubleNumber);
+    displayConversion(character, 1, integerNumber, floatNumber, doubleNumber);
 }
 
 void    handleInt(int integerNumber)
 {
-    char charachter = static_cast<char>(integerNumber);
+    char character = static_cast<char>(integerNumber);
     float floatNumber = static_cast<float>(integerNumber);
     double doubleNumber = static_cast<double>(integerNumber);
-    displayConversion(charachter, 1, integerNumber, floatNumber, doubleNumber);
+    displayConversion(character, 1, integerNumber, floatNumber, doubleNumber);
 
 }
 
@@ -75,23 +75,23 @@ void    handlePseudo(std::string input)
     float floatNumber = static_cast<float>(atof(input.c_str()));
     double doubleNumber = static_cast<double>(floatNumber);
     int integerNumber = static_cast<int>(floatNumber);
-    char charachter = static_cast<char>(floatNumber);
-    displayConversion(charachter, 0, integerNumber, floatNumber, doubleNumber);
+    char character = static_cast<char>(floatNumber);
+    displayConversion(character, 0, integerNumber, floatNumber, doubleNumber);
 }
 
-void    handleChar(char charachter)
+void    handleChar(char character)
 {
-    int integerNumber = static_cast<int>(charachter);
-    float floatNumber = static_cast<float>(charachter);
-    double doubleNumber = static_cast<double>(charachter);
-    displayConversion(charachter, 1, integerNumber, floatNumber, doubleNumber);
+    int integerNumber = static_cast<int>(character);
+    float floatNumber = static_cast<float>(character);
+    double doubleNumber = static_cast<double>(character);
+    displayConversion(character, 1, integerNumber, floatNumber, doubleNumber);
 }
 
 int     findType(std::string s)
 {
     if (s.length() == 1 && !isdigit(s.at(0)))
         return (CHAR);
-    if (s == "-inf" || s == "+inf" || s == "nan" || s == "-inff" || s == "+inff" || s == "nanf")
+    if (s == "-inf" || s == "+inf" || s == "inf" || s == "nan" || s == "-inff" || s == "+inff" || s == "nanf")
         return(PSEUDO);
     for(size_t i = 0; i < s.length(); i++)
     {
