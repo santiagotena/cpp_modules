@@ -18,7 +18,7 @@
 # include <cmath>
 
 # define ERR_ARGC           "Error: Enter only one argument."
-# define ERR_INVALID_INPUT  "Error: Invalid Input"
+# define ERR_INVALID_INPUT  "Error: Invalid Input."
 
 # define INT 0
 # define FLOAT 1
