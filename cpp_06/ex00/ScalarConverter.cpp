@@ -20,7 +20,7 @@ void    displayConversion(char charachter, bool isIntPossible, int integerNumber
                         "float: " << std::fixed << std::setprecision(1) << floatNumber <<"f" << std::endl <<
                         "double: " << std::fixed << std::setprecision(1) << doubleNumber << std::endl;
     else if (isIntPossible)
-        std::cout <<    "char: not displayable" << std::endl <<
+        std::cout <<    "char: non displayable" << std::endl <<
                         "int: " << integerNumber << std::endl <<
                         "float: " << std::fixed << std::setprecision(1) << floatNumber <<"f" << std::endl <<
                         "double: " << std::fixed << std::setprecision(1) << doubleNumber << std::endl;
@@ -36,10 +36,7 @@ void    handleDouble(double doubleNumber)
     float floatNumber = static_cast<float>(doubleNumber);
     char charachter = static_cast<char>(doubleNumber);
     int integerNumber = static_cast<int>(doubleNumber);
-    if (doubleNumber > INT_MAX || doubleNumber < INT_MIN)
-        displayConversion(charachter, 0, integerNumber, floatNumber, doubleNumber);
-    else
-        displayConversion(charachter, 1, integerNumber, floatNumber, doubleNumber);
+    displayConversion(charachter, 1, integerNumber, floatNumber, doubleNumber);
 }
 
 void    handleFloat(float floatNumber)
@@ -47,10 +44,7 @@ void    handleFloat(float floatNumber)
     char charachter = static_cast<char>(floatNumber);
     double doubleNumber = static_cast<double>(floatNumber);
     int integerNumber = static_cast<int>(floatNumber);
-    if (doubleNumber > INT_MAX || doubleNumber < INT_MIN)
-        displayConversion(charachter, 0, integerNumber, floatNumber, doubleNumber);
-    else
-        displayConversion(charachter, 1, integerNumber, floatNumber, doubleNumber);
+    displayConversion(charachter, 1, integerNumber, floatNumber, doubleNumber);
 }
 
 void    handleInt(int integerNumber)
@@ -66,7 +60,7 @@ void    handlePseudo(std::string input)
 {
     float floatNumber = static_cast<float>(atof(input.c_str()));
     double doubleNumber = static_cast<double>(floatNumber);
-    int integerNumber = 0;
+    int integerNumber = static_cast<int>(floatNumber);
     char charachter = static_cast<char>(floatNumber);
     displayConversion(charachter, 0, integerNumber, floatNumber, doubleNumber);
 }
