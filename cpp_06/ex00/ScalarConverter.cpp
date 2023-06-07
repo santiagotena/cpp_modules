@@ -12,16 +12,16 @@
 
 #include "ScalarConverter.hpp"
 
-void displayConversion(char charachter, bool isPossibleInt, int integer, float floatNumber, double doubleNumber)
+void    displayConversion(char charachter, bool isIntPossible, int integerNumber, float floatNumber, double doubleNumber)
 {
     if (charachter > 32 && charachter < 127)
         std::cout <<    "char: '" <<  charachter << "' "<< std::endl <<
-                        "int: " << integer << std::endl <<
+                        "int: " << integerNumber << std::endl <<
                         "float: " << std::fixed << std::setprecision(1) << floatNumber <<"f" << std::endl <<
                         "double: " << std::fixed << std::setprecision(1) << doubleNumber << std::endl;
-    else if (isPossibleInt)
+    else if (isIntPossible)
         std::cout <<    "char: not displayable" << std::endl <<
-                        "int: " << integer << std::endl <<
+                        "int: " << integerNumber << std::endl <<
                         "float: " << std::fixed << std::setprecision(1) << floatNumber <<"f" << std::endl <<
                         "double: " << std::fixed << std::setprecision(1) << doubleNumber << std::endl;
     else
@@ -31,65 +31,59 @@ void displayConversion(char charachter, bool isPossibleInt, int integer, float f
                         "double: " << std::fixed << std::setprecision(1) << doubleNumber << std::endl;
 }
 
-void handleInt(int integer)
-{
-    float floatNumber = static_cast<float>(integer);
-    double doubleNumber = static_cast<double>(integer);
-    char charachter = static_cast<char>(integer);
-    displayConversion(charachter, 1, integer, floatNumber, doubleNumber);
-
-}
-
-void handleFloat(float floatNumber)
-{
-    double doubleNumber = static_cast<double>(floatNumber);
-    char charachter = static_cast<char>(floatNumber);
-    if (floatNumber > INT_MAX || floatNumber < INT_MIN)
-    {
-        int integer = INT_MIN;
-        displayConversion(charachter, 0, integer, floatNumber, doubleNumber);
-        return ;
-    }
-    int integer = static_cast<int>(floatNumber);
-    displayConversion(charachter, 1, integer, floatNumber, doubleNumber);
-}
-
-void handleDouble(double doubleNumber)
+void    handleDouble(double doubleNumber)
 {
     float floatNumber = static_cast<float>(doubleNumber);
     char charachter = static_cast<char>(doubleNumber);
+    int integerNumber = static_cast<int>(doubleNumber);
     if (doubleNumber > INT_MAX || doubleNumber < INT_MIN)
-    {
-        int integer = INT_MIN;
-        displayConversion(charachter, 0, integer, floatNumber, doubleNumber);
-        return ;
-    }
-    int integer = static_cast<int>(doubleNumber);
-    displayConversion(charachter, 1, integer, floatNumber, doubleNumber);
+        displayConversion(charachter, 0, integerNumber, floatNumber, doubleNumber);
+    else
+        displayConversion(charachter, 1, integerNumber, floatNumber, doubleNumber);
 }
 
-void handleChar(char charachter)
+void    handleFloat(float floatNumber)
 {
+    char charachter = static_cast<char>(floatNumber);
+    double doubleNumber = static_cast<double>(floatNumber);
+    int integerNumber = static_cast<int>(floatNumber);
+    if (doubleNumber > INT_MAX || doubleNumber < INT_MIN)
+        displayConversion(charachter, 0, integerNumber, floatNumber, doubleNumber);
+    else
+        displayConversion(charachter, 1, integerNumber, floatNumber, doubleNumber);
+}
+
+void    handleInt(int integerNumber)
+{
+    char charachter = static_cast<char>(integerNumber);
+    float floatNumber = static_cast<float>(integerNumber);
+    double doubleNumber = static_cast<double>(integerNumber);
+    displayConversion(charachter, 1, integerNumber, floatNumber, doubleNumber);
+
+}
+
+void    handlePseudo(std::string input)
+{
+    float floatNumber = static_cast<float>(atof(input.c_str()));
+    double doubleNumber = static_cast<double>(floatNumber);
+    int integerNumber = 0;
+    char charachter = static_cast<char>(floatNumber);
+    displayConversion(charachter, 0, integerNumber, floatNumber, doubleNumber);
+}
+
+void    handleChar(char charachter)
+{
+    int integerNumber = static_cast<int>(charachter);
     float floatNumber = static_cast<float>(charachter);
     double doubleNumber = static_cast<double>(charachter);
-    int integer = static_cast<int>(charachter);
-    displayConversion(charachter, 1, integer, floatNumber, doubleNumber);
+    displayConversion(charachter, 1, integerNumber, floatNumber, doubleNumber);
 }
 
-void handlePseudo(std::string str)
-{
-    float floatNumber = static_cast<float>(atof(str.c_str()));
-    double doubleNumber = static_cast<double>(floatNumber);
-    int integer = INT_MIN; // this was the behavior of cpp itself, when trying to cast inf to int. but acc to subj, I will only print "impossible".
-    char charachter = static_cast<char>(floatNumber);
-    displayConversion(charachter, 0, integer, floatNumber, doubleNumber);
-}
-
-int    findType(std::string s)
+int     findType(std::string s)
 {
     if (s.length() == 1 && !isdigit(s.at(0)))
         return (CHAR);
-    if (s == "-inf" || s == "+inff" || s == "-inf" || s == "+inf" || s == "nan" )
+    if (s == "-inf" || s == "+inf" || s == "nan" || s == "-inff" || s == "+inff" || s == "nanf")
         return(PSEUDO);
     for(size_t i = 0; i < s.length(); i++)
     {
@@ -122,7 +116,7 @@ void    ScalarConverter::convert(std::string const &input)
     switch (type)
     {
         case CHAR:
-            handleChar(input.at(0));
+            handleChar(input[0]);
             break;
         case PSEUDO:
             handlePseudo(input);
