@@ -14,9 +14,9 @@
 # define WHATEVER_HPP
 
 template <typename T>
-void swap(T& a, T& b)
+void swap(T &a, T &b)
 {
-    T	temp;
+    T   temp;
 
     temp = a;
     a = b;
@@ -24,13 +24,13 @@ void swap(T& a, T& b)
 }
 
 template <typename T>
-T &min(T& a, T& b)
+T &min(T &a, T &b)
 {
     return (a < b ? a : b);
 }
 
 template <typename T>
-T &max(T& a, T& b)
+T &max(T &a, T &b)
 {
     return (a > b ? a : b);
 }
