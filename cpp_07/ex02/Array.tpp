@@ -1,16 +1,10 @@
 #include "Array.hpp"
 
 template<class T>
-Array<T>::Array() {
-    _size = 0;
-    _values = new T[_size];
-}
+Array<T>::Array(): _size(0), _values(NULL) {}
 
 template<class T>
-Array<T>::Array(unsigned int size) {
-    _size = size;
-    _values = new T[_size];
-}
+Array<T>::Array(unsigned int size): _size(size), _values(new T[size]) {}
 
 template<class T>
 Array<T>::Array(Array const &src) {*this = src;}
@@ -20,7 +14,7 @@ Array<T> &Array<T>::operator=(Array<T> const &src) {
     _size = src.size();
     if(_values)
         delete [] _values;
-    _values = new T[_size];
+    _values = new T[src.size()];
     for (size_t i = 0; i < _size; i++)
         _values[i] = src[i];
     return (*this);
