@@ -841,13 +841,6 @@
 				192,
 				194
 			]
-		},
-		{
-			"name" : "",
-			"sourceIndexes" : 
-			[
-				205
-			]
 		}
 	],
 	"sources" : 
@@ -2010,11 +2003,6 @@
 			"compileGroupIndex" : 0,
 			"path" : "learning/06_Casts/explicit.cpp",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "cpp_07/ex02/Array.tpp",
-			"sourceGroupIndex" : 2
 		}
 	],
 	"type" : "EXECUTABLE"
