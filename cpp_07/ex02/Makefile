@@ -14,7 +14,7 @@
 NAME 	= array
 CC 		= c++
 CFLAGS 	= -Wextra -Wall -Werror -std=c++98 -pedantic
-DEBUG 	= -g -fsanitize=address
+#DEBUG 	= -g -fsanitize=address
 
 # Clean
 RM = rm -rf

@@ -20,10 +20,18 @@ int main() {
     std::cout << "// EMPTY ARRAY TESTS //" << std::endl;
     std::cout << partition << std::endl;
     {
+        std::cout << "Integers:" << std::endl;
         Array<int>	array1(5);
         std::cout << "array1 size: " << array1.size() << std::endl;
         for (int i = 0; i < 5; i++)
             std::cout << "array1 element[" << i << "]: " << array1[i] << std::endl;
+        std::cout << partition << std::endl;
+
+        std::cout << "Char:" << std::endl;
+        Array<char>	array2(5);
+        std::cout << "array2 size: " << array2.size() << std::endl;
+        for (int i = 0; i < 5; i++)
+            std::cout << "array1 element[" << i << "]: " << array2[i] << std::endl;
     }
     std::cout << partition << std::endl;
     std::cout << "// INT TEST //" << std::endl;

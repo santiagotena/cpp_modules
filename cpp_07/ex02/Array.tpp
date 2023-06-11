@@ -1,15 +1,15 @@
 #include "Array.hpp"
 
-template<class T>
-Array<T>::Array(): _size(0), _values(NULL) {}
+template<typename T>
+Array<T>::Array(): _size(0), _values(new T[0]) {}
 
-template<class T>
+template<typename T>
 Array<T>::Array(unsigned int size): _size(size), _values(new T[size]) {}
 
-template<class T>
+template<typename T>
 Array<T>::Array(Array const &src) {*this = src;}
 
-template<class T>
+template<typename T>
 Array<T> &Array<T>::operator=(Array<T> const &src) {
     _size = src.size();
     if(_values)
@@ -20,19 +20,24 @@ Array<T> &Array<T>::operator=(Array<T> const &src) {
     return (*this);
 }
 
-template<class T>
+template<typename T>
 Array<T>::~Array() {
     delete[] _values;
 }
 
-template<class T>
+template<typename T>
 T &Array<T>::operator[](size_t index) const
 {
     if(index < _size)
         return _values[index];
     else
-        throw std::out_of_range("Exception: Index is out of bounds.");
+        throw OutOfBoundsException();
 }
 
-template<class T>
+template<typename T>
 unsigned int Array<T>::size() const{return _size;}
+
+template <typename T>
+const char	*Array<T>::OutOfBoundsException::what() const throw(){
+    return "Exception: Index is out of bounds.";
+}

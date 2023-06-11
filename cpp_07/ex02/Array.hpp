@@ -13,14 +13,13 @@
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
-# include <iostream>
 # include <exception>
 
-template<class T>
+template<typename T>
 class Array {
 private:
-    T   *_values;
-    unsigned int _size;
+    T               *_values;
+    unsigned int    _size;
 
 public:
     Array();
@@ -31,6 +30,12 @@ public:
 
     T               &operator[](size_t index) const;
     unsigned int    size() const;
+
+    class OutOfBoundsException : public std::exception
+    {
+    public:
+        virtual const char	*what() const throw();
+    };
 };
 # include "Array.tpp"
 
