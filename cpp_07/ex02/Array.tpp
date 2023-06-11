@@ -7,7 +7,7 @@ template<typename T>
 Array<T>::Array(unsigned int size): _size(size), _values(new T[size]) {}
 
 template<typename T>
-Array<T>::Array(Array const &src) {*this = src;}
+Array<T>::Array(Array const &src): _size(0), _values(new T[0]) {*this = src;}
 
 template<typename T>
 Array<T> &Array<T>::operator=(Array<T> const &src) {
