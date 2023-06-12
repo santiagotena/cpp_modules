@@ -30,7 +30,7 @@ include_directories(learning/00_Basics/init_list)
 include_directories(learning/00_Basics/pointers)
 include_directories(learning/00_Basics/static)
 include_directories(learning/00_Basics/visibility)
-include_directories(learning/02/ad_hoc_polym)
+include_directories(learning/02_Canoncal_Form/ad_hoc_polym)
 
 add_executable(cpp_modules
         cpp_00/ex00/megaphone.cpp
@@ -176,11 +176,11 @@ add_executable(cpp_modules
         learning/01_Basics2/references/ref1.cpp
         learning/01_Basics2/references/ref2.cpp
         learning/01_Basics2/references/ref3.cpp
-        learning/02/ad_hoc_polym/main.cpp
-        learning/02/ad_hoc_polym/Sample.cpp
-        learning/02/ad_hoc_polym/Sample.hpp
-        learning/02/canonical_form/main.cpp
-        learning/02/operator_overload/main.cpp
+        learning/02_Canoncal_Form/ad_hoc_polym/main.cpp
+        learning/02_Canoncal_Form/ad_hoc_polym/Sample.cpp
+        learning/02_Canoncal_Form/ad_hoc_polym/Sample.hpp
+        learning/02_Canoncal_Form/canonical_form/main.cpp
+        learning/02_Canoncal_Form/operator_overload/main.cpp
         learning/03_Inheritance/heritage.cpp
         learning/03_Inheritance/heritage2.cpp
         learning/04_Polymorphism/poly1.cpp
@@ -189,4 +189,4 @@ add_executable(cpp_modules
         learning/05_Nested_Exceptions/exceptions.cpp
         learning/05_Nested_Exceptions/nested.cpp
         learning/Inheritance_Polym/inheritance.cpp
-        cpp_05/ex02/Bureaucrat.cpp cpp_05/ex02/Bureaucrat.hpp cpp_05/ex02/AForm.cpp cpp_05/ex02/AForm.hpp cpp_05/ex02/main.cpp cpp_05/ex02/RobotomyRequestForm.cpp cpp_05/ex02/ShrubberyCreationForm.cpp cpp_05/ex02/PresidentialPardonForm.cpp cpp_05/ex02/PresidentialPardonForm.hpp cpp_05/ex02/RobotomyRequestForm.hpp cpp_05/ex02/ShrubberyCreationForm.hpp cpp_05/ex03/Intern.cpp cpp_05/ex03/Intern.hpp cpp_05/ex03/PresidentialPardonForm.cpp cpp_05/ex03/ShrubberyCreationForm.hpp cpp_05/ex03/main.cpp cpp_05/ex03/Bureaucrat.hpp cpp_05/ex03/AForm.cpp cpp_05/ex03/PresidentialPardonForm.hpp cpp_05/ex03/Bureaucrat.cpp cpp_05/ex03/ShrubberyCreationForm.cpp cpp_05/ex03/RobotomyRequestForm.cpp cpp_05/ex03/RobotomyRequestForm.hpp cpp_05/ex03/AForm.hpp cpp_06/ex00/main.cpp learning/06_Casts/00_casts.c learning/06_Casts/01_reinterpretation.c cpp_06/ex00/ScalarConverter.hpp cpp_06/ex00/ScalarConverter.cpp cpp_06/ex01/main.cpp cpp_06/ex01/Serializer.cpp cpp_06/ex01/Serializer.hpp cpp_06/ex02/A.hpp cpp_06/ex02/B.hpp cpp_06/ex02/Base.cpp cpp_06/ex02/Base.hpp cpp_06/ex02/C.hpp cpp_06/ex02/main.cpp cpp_07/ex00/whatever.hpp cpp_07/ex00/main.cpp cpp_07/ex00/main.cpp cpp_07/ex00/main.cpp cpp_07/ex00/main.cpp cpp_07/ex00/main.cpp cpp_07/ex00/whatever.hpp cpp_07/ex01/main.cpp cpp_07/ex02/main.cpp learning/06_Casts/static.cpp learning/06_Casts/static2.cpp learning/06_Casts/dynamic.cpp learning/06_Casts/reinterpret.cpp learning/06_Casts/const_cast.cpp learning/06_Casts/operator.cpp learning/06_Casts/explicit.cpp)
+        cpp_05/ex02/Bureaucrat.cpp cpp_05/ex02/Bureaucrat.hpp cpp_05/ex02/AForm.cpp cpp_05/ex02/AForm.hpp cpp_05/ex02/main.cpp cpp_05/ex02/RobotomyRequestForm.cpp cpp_05/ex02/ShrubberyCreationForm.cpp cpp_05/ex02/PresidentialPardonForm.cpp cpp_05/ex02/PresidentialPardonForm.hpp cpp_05/ex02/RobotomyRequestForm.hpp cpp_05/ex02/ShrubberyCreationForm.hpp cpp_05/ex03/Intern.cpp cpp_05/ex03/Intern.hpp cpp_05/ex03/PresidentialPardonForm.cpp cpp_05/ex03/ShrubberyCreationForm.hpp cpp_05/ex03/main.cpp cpp_05/ex03/Bureaucrat.hpp cpp_05/ex03/AForm.cpp cpp_05/ex03/PresidentialPardonForm.hpp cpp_05/ex03/Bureaucrat.cpp cpp_05/ex03/ShrubberyCreationForm.cpp cpp_05/ex03/RobotomyRequestForm.cpp cpp_05/ex03/RobotomyRequestForm.hpp cpp_05/ex03/AForm.hpp cpp_06/ex00/main.cpp learning/06_Casts/00_casts.c learning/06_Casts/01_reinterpretation.c cpp_06/ex00/ScalarConverter.hpp cpp_06/ex00/ScalarConverter.cpp cpp_06/ex01/main.cpp cpp_06/ex01/Serializer.cpp cpp_06/ex01/Serializer.hpp cpp_06/ex02/A.hpp cpp_06/ex02/B.hpp cpp_06/ex02/Base.cpp cpp_06/ex02/Base.hpp cpp_06/ex02/C.hpp cpp_06/ex02/main.cpp cpp_07/ex00/whatever.hpp cpp_07/ex00/main.cpp cpp_07/ex00/main.cpp cpp_07/ex00/main.cpp cpp_07/ex00/main.cpp cpp_07/ex00/main.cpp cpp_07/ex00/whatever.hpp cpp_07/ex01/main.cpp cpp_07/ex02/main.cpp learning/06_Casts/static.cpp learning/06_Casts/static2.cpp learning/06_Casts/dynamic.cpp learning/06_Casts/reinterpret.cpp learning/06_Casts/const_cast.cpp learning/06_Casts/operator.cpp learning/06_Casts/explicit.cpp learning/08_STL/stl1.cpp learning/08_STL/stl2.cpp learning/07_Templates/templates1.cpp learning/07_Templates/template_classes.cpp learning/07_Templates/default_types.cpp)
