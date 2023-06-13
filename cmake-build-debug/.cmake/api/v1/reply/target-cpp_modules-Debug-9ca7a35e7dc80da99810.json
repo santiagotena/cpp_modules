@@ -474,7 +474,10 @@
 				208,
 				209,
 				210,
-				211
+				211,
+				212,
+				213,
+				214
 			]
 		},
 		{
@@ -776,7 +779,10 @@
 				208,
 				209,
 				210,
-				211
+				211,
+				212,
+				213,
+				214
 			]
 		},
 		{
@@ -853,7 +859,15 @@
 				189,
 				191,
 				192,
-				194
+				194,
+				215
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				216
 			]
 		}
 	],
@@ -2059,6 +2073,34 @@
 			"compileGroupIndex" : 0,
 			"path" : "cpp_08/ex00/main.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cpp_08/ex01/main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cpp_08/ex01/Span.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "cpp_08/ex02/main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "cpp_08/ex02/MutantStack.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "cpp_08/ex02/MutantStack.tpp",
+			"sourceGroupIndex" : 2
 		}
 	],
 	"type" : "EXECUTABLE"
