@@ -82,18 +82,21 @@ int main() {
 
         std::cout << "Stack size: " << j.size() << std::endl;
         std::cout << "MutantStack size: " << k.size() << std::endl;
+
         k.push(19);
         k.push(8);
         k.push(9);
         k.push(10);
         k.push(32);
         k.push(99);
+
         j.push(19);
         j.push(8);
         j.push(9);
         j.push(10);
         j.push(32);
         j.push(99);
+
         std::cout << "Stack size after adding elements: ";
         std::cout << j.size() << std::endl;
         std::cout << "MutantStack size after adding elements: ";
