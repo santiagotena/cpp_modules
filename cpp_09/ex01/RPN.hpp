@@ -10,3 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef RPN_HPP
+# define RPN_HPP
+
+# include <iostream>
+# include <string>
+# include <stack>
+
+class RPN {
+private:
+    std::stack<int> _numbers;
+
+    bool    _performOperations(std::string buffer);
+
+public:
+    RPN();
+    RPN(RPN const &src);
+    RPN &operator=(RPN const &src);
+    virtual ~RPN();
+
+    void    calculate(char *input[]);
+};
+
+#endif
