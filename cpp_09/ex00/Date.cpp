@@ -13,10 +13,12 @@
 #include "Date.hpp"
 
 Date::Date() {}
-
 Date::Date(int day, int month, int year): _day(day), _month(month), _year(year) {}
-
 Date::~Date() {}
+
+int Date::getDay() const {return (_day);}
+int Date::getMonth() const {return (_month);}
+int Date::getYear() const {return (_year);}
 
 bool Date::operator==(Date const &src) const {
     return (_day == src._day &&
@@ -45,12 +47,6 @@ bool Date::operator<(Date const &src) const {
     return (false);
 }
 
-int Date::getDay() const {return (_day);}
-
-int Date::getMonth() const {return (_month);}
-
-int Date::getYear() const {return (_year);}
-
 bool Date::operator>(Date const &src) const {
     return (src < *this);
 }
@@ -64,24 +60,7 @@ bool Date::operator>=(Date const &src) const {
 }
 
 bool Date::isDateValid(){
-    return (_day > 0 && _day <= 31 && _month > 0 && _month <= 12 && _year > 0  );
-}
-
-Date createDate(std::string str) {
-    int _day, _month, _year;
-    _year = stoi(str);
-    size_t index = str.find('-');
-    if (index != 4)
-        throw Date::IncorectDateFormat();
-    str = str.erase(0, 5);
-    _month = stoi(str);
-    index = str.find('-');
-    str = str.erase(0, 3);
-    if (index != 2)
-        throw Date::IncorectDateFormat();
-    _day = stoi(str);
-    Date date(_day, _month, _year);
-    return (date);
+    return (_day > 0 && _day <= 31 && _month > 0 && _month <= 12 && _year > 0);
 }
 
 std::ostream &operator<<(std::ostream &output, Date date) {

@@ -23,14 +23,18 @@ class Date;
 
 class BitcoinExchange {
 private:
-    void _findRate(double amount, Date time);
+    Date    _createDate(std::string date);
+    void    _findRate(double amount, Date time);
+    void    _printResult(double value, double amount, Date time);
 
 public:
     std::map <Date, double> bitcoinDB;
+
     BitcoinExchange(std::string referenceFile);
     ~BitcoinExchange();
 
     void convert(std::string inFile);
+
 };
 
 std::ostream &operator<<(std::ostream &output, const BitcoinExchange &input);

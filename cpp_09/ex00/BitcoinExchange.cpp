@@ -12,6 +12,37 @@
 
 #include "BitcoinExchange.hpp"
 
+Date BitcoinExchange::_createDate(std::string str) {
+    int _day, _month, _year;
+    _year = stoi(str);
+    size_t index = str.find('-');
+    if (index != 4)
+        throw Date::IncorectDateFormat();
+    str = str.erase(0, 5);
+    _month = stoi(str);
+    index = str.find('-');
+    str = str.erase(0, 3);
+    if (index != 2)
+        throw Date::IncorectDateFormat();
+    _day = stoi(str);
+    Date date(_day, _month, _year);
+    return (date);
+}
+
+void BitcoinExchange::_findRate(double amount, Date time) {
+    for (std::map<Date, double>::iterator it = bitcoinDB.begin(); it != bitcoinDB.end(); it++)
+    {
+        if (it->first == time)
+            return _printResult(it->second * amount, amount, time);
+        if (it->first > time)
+            return _printResult((--it)->second * amount, amount, time);
+    }
+}
+
+void BitcoinExchange::_printResult(double value, double amount, Date time) {
+    std::cout << time << " => " << amount << " = " << value << std::endl;
+}
+
 BitcoinExchange::BitcoinExchange(std::string referenceFile) {
     std::fstream file(referenceFile);
     if (file.fail()) {
@@ -23,27 +54,13 @@ BitcoinExchange::BitcoinExchange(std::string referenceFile) {
     while (getline(file, buffer)) {
         if (buffer != "date,exchange_rate") {
             size_t comaPos = buffer.find(',');
-            date = createDate(buffer);
+            date = _createDate(buffer);
             bitcoinDB.insert(std::make_pair(date, stof(buffer.substr(comaPos + 1, buffer.length()))));
         }
     }
 }
 
 BitcoinExchange::~BitcoinExchange() {}
-
-void printResult(double value, double amount, Date time) {
-    std::cout << time << " => " << amount << " = " << value << std::endl;
-}
-
-void BitcoinExchange::_findRate(double amount, Date time) {
-    for (std::map<Date, double>::iterator it = bitcoinDB.begin(); it != bitcoinDB.end(); it++)
-    {
-        if (it->first == time)
-            return printResult(it->second * amount, amount, time);
-        if (it->first > time)
-            return printResult((--it)->second * amount, amount, time);
-    }
-}
 
 void BitcoinExchange::convert(std::string inFile) {
     std::fstream file(inFile);
@@ -56,7 +73,7 @@ void BitcoinExchange::convert(std::string inFile) {
     double amount;
     while (getline(file, buffer)) {
         if (buffer != "date | value") {
-            date = createDate(buffer);
+            date = _createDate(buffer);
             if(!date.isDateValid())
             {
                 std::cerr << "Error: bad input => " << date << std::endl;

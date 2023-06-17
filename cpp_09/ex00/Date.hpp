@@ -49,7 +49,6 @@ public:
     };
 };
 
-Date createDate(std::string date);
 std::ostream &operator<<(std::ostream &output, Date date);
 
 #endif
