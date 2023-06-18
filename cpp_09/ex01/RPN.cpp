@@ -104,11 +104,13 @@ bool    RPN::_isNumberValid(int number) {
     return (true);
 }
 
-bool    RPN::_onlyOneNumberRemains() {
+void    RPN::_displayResult() {
     if (_numbers.size() == 1)
-        return (true);
-    std::cout << ERR_NOT_ENOUGH_OPERATORS << std::endl;
-    return (false);
+        std::cout << _numbers.top() << std::endl;
+    else {
+        std::cout << ERR_NOT_ENOUGH_OPERATORS << std::endl;
+        exit(-1);
+    }
 }
 
 // Public //
@@ -131,36 +133,10 @@ void    RPN::calculate(char input[]) {
             else
                 exit(-1);
         }
-
         number = _extractNextNumber(*it);
-//        std::istringstream iss(*it);
-//        if (!(iss >> number)) {
-//            std::cout << ERR_INVALID_INPUT << std::endl;
-//            exit (1);
-//        }
-
         if (!_isNumberValid(number))
             exit(1);
-//        if (number > 9 || number < -9) {
-//            std::cout << ERR_INVALID_NUMBER << std::endl;
-//            exit(-1);
-//        }
-
-//        if (_isNumberNext(*it) && _isNumberValid(number))
-//            _numbers.push(number);
-//        else
-//            exit(-1);
-//    }
         _numbers.push(number);
     }
-    if (_numbers.size() > 1) {
-//        std::cout << ERR_NOT_ENOUGH_OPERATORS << std::endl;
-//        exit(-1);
-//    } else
-//        std::cout << _numbers.top() << std::endl;
-    }
-    if (_onlyOneNumberRemains())
-        std::cout << _numbers.top() << std::endl;
-    else
-        exit(-1);
+    _displayResult();
 }
