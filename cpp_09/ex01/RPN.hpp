@@ -15,13 +15,26 @@
 
 # include <iostream>
 # include <string>
+# include <sstream>
+# include <vector>
 # include <stack>
+
+# define ERR_ARGC                   "Error: Input a string of operations only."
+# define ERR_EXAMPLE                "Example: ./RPN \"7 7 * 7 -\""
+# define ERR_SUM_OPERATOR           "Error: Not enough operands for operator '+'."
+# define ERR_SUBS_OPERATOR          "Error: Not enough operands for operator '-'."
+# define ERR_MULT_OPERATOR          "Error: Not enough operands for operator '*'."
+# define ERR_DIV_OPERATOR           "Error: Not enough operands for operator '/'."
+# define ERR_INVALID_INPUT          "Error: Invalid element in input."
+# define ERR_INVALID_NUMBER         "Error: Use numbers with values between -9 and 9."
+# define ERR_NOT_ENOUGH_OPERATORS   "Error: Not enough operators provided."
 
 class RPN {
 private:
     std::stack<int> _numbers;
 
-    bool    _performOperations(std::string buffer);
+    std::vector<std::string>    _split(const std::string &str, char delimiter);
+    bool                        _performOperations(std::string element);
 
 public:
     RPN();
@@ -29,7 +42,7 @@ public:
     RPN &operator=(RPN const &src);
     virtual ~RPN();
 
-    void    calculate(char *input[]);
+    void    calculate(char input[]);
 };
 
 #endif
