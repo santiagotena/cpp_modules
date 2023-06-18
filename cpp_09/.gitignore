@@ -4,3 +4,7 @@ RPN
 PmergeMe
 
 #output files
+
+#CMake
+CMakeLists.txt
+cmake-build-debug
