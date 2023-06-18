@@ -63,7 +63,7 @@ BitcoinExchange::BitcoinExchange(std::string referenceFile) {
     std::fstream file(referenceFile);
     if (file.fail()) {
         std::cerr << "Error: Cannot open reference file." << std::endl;
-        return;
+        exit(-1);
     }
     std::string buffer;
     Date date;
