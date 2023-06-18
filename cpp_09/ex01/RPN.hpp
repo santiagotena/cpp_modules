@@ -36,11 +36,13 @@ private:
     RPN(RPN &src);
     RPN &operator=(RPN &src);
 
+    std::vector<std::string>    _split(const std::string &str, char delimiter);
     bool                        _isOperatorNext(std::string element);
     bool                        _isOperationPossible(std::string element);
     void                        _performOperations(std::string element);
-
-    std::vector<std::string>    _split(const std::string &str, char delimiter);
+    int                         _extractNextNumber(std::string element);
+    bool                        _isNumberValid(int number);
+    bool                        _onlyOneNumberRemains();
 
 public:
     RPN();

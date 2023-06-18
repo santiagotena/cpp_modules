@@ -35,6 +35,17 @@ RPN &RPN::operator=(RPN &src)
     return(*this);
 }
 
+std::vector<std::string>    RPN::_split(const std::string &str, char delimiter) {
+    std::vector<std::string> tokens;
+    std::istringstream iss(str);
+    std::string token;
+
+    while (std::getline(iss, token, delimiter)) {
+        tokens.push_back(token);
+    }
+    return (tokens);
+}
+
 bool    RPN::_isOperatorNext(std::string element) {
     return (element == "+" ||
             element == "-" ||
@@ -74,15 +85,30 @@ void    RPN::_performOperations(std::string element) {
     _numbers.push(result);
 }
 
-std::vector<std::string>    RPN::_split(const std::string &str, char delimiter) {
-    std::vector<std::string> tokens;
-    std::istringstream iss(str);
-    std::string token;
+int    RPN::_extractNextNumber(std::string element) {
+    int number;
 
-    while (std::getline(iss, token, delimiter)) {
-        tokens.push_back(token);
+    std::istringstream iss(element);
+    if (!(iss >> number)) {
+        std::cout << ERR_INVALID_INPUT << std::endl;
+        exit(-1);
     }
-    return (tokens);
+    return (number);
+}
+
+bool    RPN::_isNumberValid(int number) {
+    if (number > 9 || number < -9) {
+        std::cout << ERR_INVALID_NUMBER << std::endl;
+        return (false);
+    }
+    return (true);
+}
+
+bool    RPN::_onlyOneNumberRemains() {
+    if (_numbers.size() == 1)
+        return (true);
+    std::cout << ERR_NOT_ENOUGH_OPERATORS << std::endl;
+    return (false);
 }
 
 // Public //
@@ -106,22 +132,35 @@ void    RPN::calculate(char input[]) {
                 exit(-1);
         }
 
-        std::istringstream iss(*it);
-        if (!(iss >> number)) {
-            std::cout << ERR_INVALID_INPUT << std::endl;
-            exit (1);
-        }
-        if (number > 9 || number < -9) {
-            std::cout << ERR_INVALID_NUMBER << std::endl;
-            exit(-1);
-        }
+        number = _extractNextNumber(*it);
+//        std::istringstream iss(*it);
+//        if (!(iss >> number)) {
+//            std::cout << ERR_INVALID_INPUT << std::endl;
+//            exit (1);
+//        }
 
+        if (!_isNumberValid(number))
+            exit(1);
+//        if (number > 9 || number < -9) {
+//            std::cout << ERR_INVALID_NUMBER << std::endl;
+//            exit(-1);
+//        }
+
+//        if (_isNumberNext(*it) && _isNumberValid(number))
+//            _numbers.push(number);
+//        else
+//            exit(-1);
+//    }
         _numbers.push(number);
     }
     if (_numbers.size() > 1) {
-        std::cout << ERR_NOT_ENOUGH_OPERATORS << std::endl;
-        exit(-1);
-    } else {
-        std::cout << _numbers.top() << std::endl;
+//        std::cout << ERR_NOT_ENOUGH_OPERATORS << std::endl;
+//        exit(-1);
+//    } else
+//        std::cout << _numbers.top() << std::endl;
     }
+    if (_onlyOneNumberRemains())
+        std::cout << _numbers.top() << std::endl;
+    else
+        exit(-1);
 }
