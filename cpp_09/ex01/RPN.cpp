@@ -12,19 +12,28 @@
 
 #include "RPN.hpp"
 
-RPN::RPN() {}
-
-RPN::RPN(RPN const &src) {
-    (void)src;
+// Private //
+RPN::RPN(RPN &src) {
+    *this = src;
 }
 
-RPN &RPN::operator=(RPN const &src)
+RPN &RPN::operator=(RPN &src)
 {
-    (void)src;
+    while (!_numbers.empty()) {
+        _numbers.pop();
+    }
+    std::stack<int> temp;
+    while (!src._numbers.empty()) {
+        temp.push(src._numbers.top());
+        src._numbers.pop();
+    }
+    while (!temp.empty()) {
+        _numbers.push(temp.top());
+        src._numbers.push(temp.top());
+        temp.pop();
+    }
     return(*this);
 }
-
-RPN::~RPN() {}
 
 bool    RPN::_performOperations(std::string element) {
     int operand;
@@ -81,7 +90,7 @@ bool    RPN::_performOperations(std::string element) {
     return (false);
 }
 
-std::vector<std::string> RPN::_split(const std::string &str, char delimiter) {
+std::vector<std::string>    RPN::_split(const std::string &str, char delimiter) {
     std::vector<std::string> tokens;
     std::istringstream iss(str);
     std::string token;
@@ -92,6 +101,10 @@ std::vector<std::string> RPN::_split(const std::string &str, char delimiter) {
     return (tokens);
 }
 
+// Public //
+RPN::RPN() {}
+
+RPN::~RPN() {}
 
 void    RPN::calculate(char input[]) {
     int number;

@@ -33,13 +33,14 @@ class RPN {
 private:
     std::stack<int> _numbers;
 
-    std::vector<std::string>    _split(const std::string &str, char delimiter);
+    RPN(RPN &src);
+    RPN &operator=(RPN &src);
+
     bool                        _performOperations(std::string element);
+    std::vector<std::string>    _split(const std::string &str, char delimiter);
 
 public:
     RPN();
-    RPN(RPN const &src);
-    RPN &operator=(RPN const &src);
     virtual ~RPN();
 
     void    calculate(char input[]);
