@@ -21,16 +21,17 @@
 
 class PmergeMe {
 private:
-    std::string     _container;
-    std::set<int>   _setNumbers;
-    std::list<int>  _listNumbers;
-    std::deque<int> _dequeNumbers;
 
     PmergeMe();
     PmergeMe(PmergeMe &src);
 //    PmergeMe    &operator=(PmergeMe &src);
 
 public:
+    std::string     _container;
+    std::set<int>   setNumbers;
+    std::list<int>  listNumbers;
+    std::deque<int> dequeNumbers;
+
     PmergeMe(std::string);
     ~PmergeMe();
 
