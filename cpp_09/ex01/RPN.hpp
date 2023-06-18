@@ -36,7 +36,10 @@ private:
     RPN(RPN &src);
     RPN &operator=(RPN &src);
 
-    bool                        _performOperations(std::string element);
+    bool                        _isOperatorNext(std::string element);
+    bool                        _isOperationPossible(std::string element);
+    void                        _performOperations(std::string element);
+
     std::vector<std::string>    _split(const std::string &str, char delimiter);
 
 public:

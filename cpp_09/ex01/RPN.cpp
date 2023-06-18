@@ -35,59 +35,43 @@ RPN &RPN::operator=(RPN &src)
     return(*this);
 }
 
-bool    RPN::_performOperations(std::string element) {
+bool    RPN::_isOperatorNext(std::string element) {
+    return (element == "+" ||
+            element == "-" ||
+            element == "*" ||
+            element == "/" );
+}
+
+bool    RPN::_isOperationPossible(std::string element) {
+    if (_numbers.size() >= 2)
+        return (true);
+    if (element == "+")
+        std::cout << ERR_SUM_OPERATOR << std::endl;
+    if (element == "-")
+        std::cout << ERR_SUBS_OPERATOR << std::endl;
+    if (element == "*")
+        std::cout << ERR_MULT_OPERATOR << std::endl;
+    if (element == "/")
+        std::cout << ERR_DIV_OPERATOR << std::endl;
+    return (false);
+}
+
+void    RPN::_performOperations(std::string element) {
     int operand;
     int result;
 
-    if (element == "+") {
-        if (_numbers.size() >= 2) {
-            operand = _numbers.top();
-            _numbers.pop();
-            result = _numbers.top() + operand;
-            _numbers.pop();
-            _numbers.push(result);
-            return (true);
-        }
-        std::cout << ERR_SUM_OPERATOR << std::endl;
-        exit(-1);
-    }
-    else if (element == "-") {
-        if (_numbers.size() >= 2) {
-            operand = _numbers.top();
-            _numbers.pop();
-            result = _numbers.top() - operand;
-            _numbers.pop();
-            _numbers.push(result);
-            return (true);
-        }
-        std::cout << ERR_SUBS_OPERATOR << std::endl;
-        exit(-1);
-    }
-    else if (element == "*") {
-        if (_numbers.size() >= 2) {
-            operand = _numbers.top();
-            _numbers.pop();
-            result = _numbers.top() * operand;
-            _numbers.pop();
-            _numbers.push(result);
-            return (true);
-        }
-        std::cout << ERR_MULT_OPERATOR << std::endl;
-        exit(-1);
-    }
-    else if (element == "/") {
-        if (_numbers.size() >= 2) {
-            operand = _numbers.top();
-            _numbers.pop();
-            result = _numbers.top() / operand;
-            _numbers.pop();
-            _numbers.push(result);
-            return(true);
-        }
-        std::cout << ERR_DIV_OPERATOR << std::endl;
-        exit(-1);
-    }
-    return (false);
+    operand = _numbers.top();
+    _numbers.pop();
+    if (element == "+")
+        result = _numbers.top() + operand;
+    if (element == "-")
+        result = _numbers.top() - operand;
+    if (element == "*")
+        result = _numbers.top() * operand;
+    if (element == "/")
+        result = _numbers.top() / operand;
+    _numbers.pop();
+    _numbers.push(result);
 }
 
 std::vector<std::string>    RPN::_split(const std::string &str, char delimiter) {
@@ -113,8 +97,14 @@ void    RPN::calculate(char input[]) {
 
     std::vector<std::string>::iterator it;
     for (it = elements.begin(); it != elements.end(); it++) {
-        if (_performOperations(*it))
-            continue;
+        if (_isOperatorNext(*it)) {
+            if (_isOperationPossible(*it)) {
+                _performOperations((*it));
+                continue;
+            }
+            else
+                exit(-1);
+        }
 
         std::istringstream iss(*it);
         if (!(iss >> number)) {
