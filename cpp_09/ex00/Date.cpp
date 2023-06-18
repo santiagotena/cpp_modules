@@ -13,7 +13,18 @@
 #include "Date.hpp"
 
 Date::Date() {}
+
 Date::Date(int day, int month, int year): _day(day), _month(month), _year(year) {}
+
+Date::Date(Date const &src) {*this = src;}
+
+Date    &Date::operator=(Date const &src) {
+    _day = src._day;
+    _month = src._month;
+    _year = src._year;
+    return (*this);
+}
+
 Date::~Date() {}
 
 int Date::getDay() const {return (_day);}

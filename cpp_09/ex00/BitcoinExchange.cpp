@@ -12,6 +12,22 @@
 
 #include "BitcoinExchange.hpp"
 
+BitcoinExchange::BitcoinExchange() {}
+
+BitcoinExchange::BitcoinExchange(BitcoinExchange &src) {
+    *this = src;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange &src) {
+    if (!bitcoinDB.empty())
+        bitcoinDB.clear();
+    std::map<Date, double>::const_iterator it;
+    for (it = src.bitcoinDB.begin(); it != src.bitcoinDB.end(); it++) {
+        bitcoinDB.insert(std::make_pair(it->first, it->second));
+    }
+    return (*this);
+}
+
 Date BitcoinExchange::_createDate(std::string str) {
     int _day, _month, _year;
     _year = stoi(str);

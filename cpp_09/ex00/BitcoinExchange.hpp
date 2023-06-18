@@ -23,6 +23,10 @@ class Date;
 
 class BitcoinExchange {
 private:
+    BitcoinExchange();
+    BitcoinExchange(BitcoinExchange &src);
+    BitcoinExchange &operator=(BitcoinExchange &src);
+
     Date    _createDate(std::string date);
     void    _findRate(double amount, Date time);
     void    _printResult(double value, double amount, Date time);

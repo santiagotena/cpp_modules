@@ -24,6 +24,8 @@ private:
 public:
     Date();
     Date(int day, int month, int year);
+    Date(Date const &src);
+    Date    &operator=(Date const &src);
     ~Date();
 
     int getDay() const;
