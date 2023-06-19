@@ -21,22 +21,24 @@
 
 class PmergeMe {
 private:
+    int             _arrayNumbers[10000];
+    int             _arraySize;
+    std::set<int>   _setNumbers;
+    std::list<int>  _listNumbers;
+    std::deque<int> _dequeNumbers;
 
-    PmergeMe();
     PmergeMe(PmergeMe &src);
 //    PmergeMe    &operator=(PmergeMe &src);
 
-public:
-    std::string     _container;
-    std::set<int>   setNumbers;
-    std::list<int>  listNumbers;
-    std::deque<int> dequeNumbers;
 
-    PmergeMe(std::string);
+public:
+    PmergeMe();
     ~PmergeMe();
 
-
-
+    void    initialize(int argc, char *argv[]);
+    void    set();
+    void    list();
+    void    deque();
 };
 
 #endif
