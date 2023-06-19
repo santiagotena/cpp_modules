@@ -44,11 +44,10 @@ PmergeMe    &PmergeMe::operator=(PmergeMe &src) {
 }
 
 template <typename Container, typename Iterator>
-void    PmergeMe::merge(Container& cont, Iterator low, Iterator mid, Iterator high) {
+void    PmergeMe::_merge(Container& cont, Iterator low, Iterator mid, Iterator high) {
     Container temp;
     Iterator i = low;
     Iterator j = mid;
-
     // Merge the two sorted subcontainers into temp
     while (i != mid && j != high) {
         if (*i <= *j) {
@@ -59,28 +58,24 @@ void    PmergeMe::merge(Container& cont, Iterator low, Iterator mid, Iterator hi
             ++j;
         }
     }
-
     // Copy the remaining elements from the first subcontainer, if any
     while (i != mid) {
         temp.push_back(*i);
         ++i;
     }
-
     // Copy the remaining elements from the second subcontainer, if any
     while (j != high) {
         temp.push_back(*j);
         ++j;
     }
-
     // Copy the merged elements back to the original container
     Iterator it = low;
     for (typename Container::iterator tempIt = temp.begin(); tempIt != temp.end(); ++tempIt, ++it)
         *it = *tempIt;
 }
 
-// Function to perform merge-insert sort
 template <typename Container, typename Iterator>
-void    PmergeMe::mergeInsertSort(Container& cont, Iterator low, Iterator high) {
+void    PmergeMe::_mergeInsertSort(Container& cont, Iterator low, Iterator high) {
     if (low != high) {
         if (std::distance(low, high) <= 4) {
             // Use insertion sort for small subcontainers
@@ -97,13 +92,11 @@ void    PmergeMe::mergeInsertSort(Container& cont, Iterator low, Iterator high) 
             // Divide the container into two halves
             Iterator mid = low;
             std::advance(mid, std::distance(low, high) / 2);
-
             // Recursively sort the two halves
-            mergeInsertSort(cont, low, mid);
-            mergeInsertSort(cont, mid, high);
-
+            _mergeInsertSort(cont, low, mid);
+            _mergeInsertSort(cont, mid, high);
             // Merge the sorted halves
-            merge(cont, low, mid, high);
+            _merge(cont, low, mid, high);
         }
     }
 }
@@ -183,7 +176,7 @@ void    PmergeMe::list() {
     for (int i = 0; i < _arraySize; i++)
         _listNumbers.push_back(_arrayNumbers[i]);
     timeStart = clock();
-    mergeInsertSort(_listNumbers, _listNumbers.begin(), _listNumbers.end());
+    _mergeInsertSort(_listNumbers, _listNumbers.begin(), _listNumbers.end());
     timeEnd = clock();
     listTime = (double)(timeEnd - timeStart) / CLOCKS_PER_SEC * 1e3;
 
@@ -204,7 +197,7 @@ void    PmergeMe::deque() {
     for (int i = 0; i < _arraySize; i++)
         _dequeNumbers.push_back(_arrayNumbers[i]);
     timeStart = clock();
-    mergeInsertSort(_dequeNumbers, _dequeNumbers.begin(), _dequeNumbers.end());
+    _mergeInsertSort(_dequeNumbers, _dequeNumbers.begin(), _dequeNumbers.end());
     timeEnd = clock();
     dequeTime = (double)(timeEnd - timeStart) / CLOCKS_PER_SEC * 1e3;
 

@@ -17,13 +17,11 @@ int main(int argc, char **argv) {
         std::cout << "Error: Provide more than one element to sort." << std::endl;
         return (-1);
     }
-
     PmergeMe sorter;
-    sorter.initialize(argc, argv);
 
+    sorter.initialize(argc, argv);
     sorter.list();
     sorter.deque();
     sorter.set();
-
     return (0);
 }

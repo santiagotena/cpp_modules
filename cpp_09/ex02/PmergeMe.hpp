@@ -30,6 +30,10 @@ private:
     PmergeMe(PmergeMe &src);
     PmergeMe    &operator=(PmergeMe &src);
 
+    template <typename Container, typename Iterator>
+    void    _mergeInsertSort(Container& cont, Iterator low, Iterator high);
+    template <typename Container, typename Iterator>
+    void    _merge(Container& cont, Iterator low, Iterator mid, Iterator high);
 
 public:
     PmergeMe();
@@ -39,11 +43,6 @@ public:
     void    set();
     void    list();
     void    deque();
-
-    template <typename Container, typename Iterator>
-    void    mergeInsertSort(Container& cont, Iterator low, Iterator high);
-    template <typename Container, typename Iterator>
-    void    merge(Container& cont, Iterator low, Iterator mid, Iterator high);
 };
 
 #endif
