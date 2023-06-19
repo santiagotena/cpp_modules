@@ -15,19 +15,36 @@
 // Private //
 PmergeMe::PmergeMe(PmergeMe &src) {*this = src;}
 
-//PmergeMe    &PmergeMe::operator=(PmergeMe &src) {
-//    if (!_setNumbers.empty()) {
-//        //Deep copy
-//    } else if (!_listNumbers.empty()) {
-//        //Deep copy
-//    } else if (!_dequeNumbers.empty()) {
-//        //Deep copy
-//    }
-//    return (*this);
-//}
+PmergeMe    &PmergeMe::operator=(PmergeMe &src) {
+    _arraySize = src._arraySize;
+    if (_arraySize > 0) {
+        delete[] _arrayNumbers;
+        _arrayNumbers = new int[_arraySize];
+        for (int i = 0; i < _arraySize; i++)
+            _arrayNumbers[i] = src._arrayNumbers[i];
+    }
+    if (!_setNumbers.empty()) {
+        _setNumbers.clear();
+        std::set<int>::const_iterator setIt;
+        for (setIt = src._setNumbers.begin(); setIt != src._setNumbers.end(); ++setIt)
+            _setNumbers.insert(*setIt);
+    }
+    if (!_listNumbers.empty()) {
+        _listNumbers.clear();
+        std::list<int>::const_iterator listIt;
+        for (listIt = src._listNumbers.begin(); listIt != src._listNumbers.end(); ++listIt)
+            _listNumbers.push_back(*listIt);
+    }
+    if (!_dequeNumbers.empty()) {
+        std::deque<int>::const_iterator dequeIt;
+        for (dequeIt = src._dequeNumbers.begin(); dequeIt != src._dequeNumbers.end(); ++dequeIt)
+            _dequeNumbers.push_back(*dequeIt);
+    }
+    return (*this);
+}
 
 template <typename Container, typename Iterator>
-void merge(Container& cont, Iterator low, Iterator mid, Iterator high) {
+void    PmergeMe::merge(Container& cont, Iterator low, Iterator mid, Iterator high) {
     Container temp;
     Iterator i = low;
     Iterator j = mid;
@@ -63,7 +80,7 @@ void merge(Container& cont, Iterator low, Iterator mid, Iterator high) {
 
 // Function to perform merge-insert sort
 template <typename Container, typename Iterator>
-void mergeInsertSort(Container& cont, Iterator low, Iterator high) {
+void    PmergeMe::mergeInsertSort(Container& cont, Iterator low, Iterator high) {
     if (low != high) {
         if (std::distance(low, high) <= 4) {
             // Use insertion sort for small subcontainers
@@ -108,6 +125,7 @@ void    PmergeMe::initialize(int argc, char *argv[]) {
         std::istringstream iss(argv[i]);
         if (!(iss >> number)) {
             std::cout << "Error: Only positive integers are allowed." << std::endl;
+            delete[] _arrayNumbers;
             exit(-1);
         }
 
@@ -115,6 +133,7 @@ void    PmergeMe::initialize(int argc, char *argv[]) {
             _arrayNumbers[i -1] = number;
         else {
             std::cout << "Error: Only positive integers are allowed." << std::endl;
+            delete[] _arrayNumbers;
             exit(-1);
         }
     }
@@ -123,6 +142,7 @@ void    PmergeMe::initialize(int argc, char *argv[]) {
 //        for (int j = (i + 1); j < (_arraySize); j++) {
 //            if (_arrayNumbers[i] == _arrayNumbers[j]) {
 //                std::cout << "Error: No duplicates are allowed." << std::endl;
+//                delete[] _arrayNumbers;
 //                exit(-1);
 //            }
 //        }

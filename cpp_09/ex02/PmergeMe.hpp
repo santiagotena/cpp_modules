@@ -28,7 +28,7 @@ private:
     std::deque<int> _dequeNumbers;
 
     PmergeMe(PmergeMe &src);
-//    PmergeMe    &operator=(PmergeMe &src);
+    PmergeMe    &operator=(PmergeMe &src);
 
 
 public:
@@ -39,6 +39,11 @@ public:
     void    set();
     void    list();
     void    deque();
+
+    template <typename Container, typename Iterator>
+    void    mergeInsertSort(Container& cont, Iterator low, Iterator high);
+    template <typename Container, typename Iterator>
+    void    merge(Container& cont, Iterator low, Iterator mid, Iterator high);
 };
 
 #endif
