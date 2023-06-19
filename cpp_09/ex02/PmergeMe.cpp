@@ -117,7 +117,7 @@ void    PmergeMe::initialize(int argc, char *argv[]) {
 
         std::istringstream iss(argv[i]);
         if (!(iss >> number)) {
-            std::cout << "Error: Only positive integers are allowed." << std::endl;
+            std::cout << ERR_ONLY_POSITIVE << std::endl;
             delete[] _arrayNumbers;
             exit(-1);
         }
@@ -125,7 +125,7 @@ void    PmergeMe::initialize(int argc, char *argv[]) {
         if (number > 0)
             _arrayNumbers[i -1] = number;
         else {
-            std::cout << "Error: Only positive integers are allowed." << std::endl;
+            std::cout << ERR_ONLY_POSITIVE << std::endl;
             delete[] _arrayNumbers;
             exit(-1);
         }
@@ -134,7 +134,7 @@ void    PmergeMe::initialize(int argc, char *argv[]) {
 //    for (int i = 0; i < (argc - 2); i++) {
 //        for (int j = (i + 1); j < (_arraySize); j++) {
 //            if (_arrayNumbers[i] == _arrayNumbers[j]) {
-//                std::cout << "Error: No duplicates are allowed." << std::endl;
+//                std::cout << ERR_NO_DUPLICATES << std::endl;
 //                delete[] _arrayNumbers;
 //                exit(-1);
 //            }

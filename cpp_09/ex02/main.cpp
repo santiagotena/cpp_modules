@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv) {
     if (argc < 2) {
-        std::cout << "Error: Provide more than one element to sort." << std::endl;
+        std::cout << ERR_ARGC << std::endl;
         return (-1);
     }
     PmergeMe sorter;

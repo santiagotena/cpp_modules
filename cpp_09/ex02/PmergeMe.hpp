@@ -19,6 +19,10 @@
 # include <list>
 # include <deque>
 
+# define ERR_ARGC           "Error: Provide more than one element to sort."
+# define ERR_ONLY_POSITIVE  "Error: Only positive integers are allowed."
+# define ERR_NO_DUPLICATES  "Error: No duplicates are allowed."
+
 class PmergeMe {
 private:
     int             *_arrayNumbers;
