@@ -12,6 +12,71 @@
 
 #include "PmergeMe.hpp"
 
+template <typename Container, typename Iterator>
+void merge(Container& cont, Iterator low, Iterator mid, Iterator high) {
+    Container temp;
+    Iterator i = low;
+    Iterator j = mid;
+
+    // Merge the two sorted subcontainers into temp
+    while (i != mid && j != high) {
+        if (*i <= *j) {
+            temp.push_back(*i);
+            ++i;
+        } else {
+            temp.push_back(*j);
+            ++j;
+        }
+    }
+
+    // Copy the remaining elements from the first subcontainer, if any
+    while (i != mid) {
+        temp.push_back(*i);
+        ++i;
+    }
+
+    // Copy the remaining elements from the second subcontainer, if any
+    while (j != high) {
+        temp.push_back(*j);
+        ++j;
+    }
+
+    // Copy the merged elements back to the original container
+    Iterator it = low;
+    for (typename Container::iterator tempIt = temp.begin(); tempIt != temp.end(); ++tempIt, ++it)
+        *it = *tempIt;
+}
+
+// Function to perform merge-insert sort
+template <typename Container, typename Iterator>
+void mergeInsertSort(Container& cont, Iterator low, Iterator high) {
+    if (low != high) {
+        if (std::distance(low, high) <= 4) {
+            // Use insertion sort for small subcontainers
+            for (Iterator i = low; i != high; ++i) {
+                typename Container::value_type key = *i;
+                Iterator j = i;
+                while (j != low && *std::prev(j) > key) {
+                    *j = *std::prev(j);
+                    --j;
+                }
+                *j = key;
+            }
+        } else {
+            // Divide the container into two halves
+            Iterator mid = low;
+            std::advance(mid, std::distance(low, high) / 2);
+
+            // Recursively sort the two halves
+            mergeInsertSort(cont, low, mid);
+            mergeInsertSort(cont, mid, high);
+
+            // Merge the sorted halves
+            merge(cont, low, mid, high);
+        }
+    }
+}
+
 int main(int argc, char **argv) {
     if (argc < 2) {
         std::cout << "Error: Provide more than one element to sort." << std::endl;
@@ -45,14 +110,14 @@ int main(int argc, char **argv) {
     }
 
     //Duplicates
-    for (int i = 0; i < (argc - 2); i++) {
-        for (int j = (i + 1); j < (argc - 1); j++) {
-            if (arrayNumbers[i] == arrayNumbers[j]) {
-                std::cout << "Error: No duplicates are allowed." << std::endl;
-                exit(-1);
-            }
-        }
-    }
+//    for (int i = 0; i < (argc - 2); i++) {
+//        for (int j = (i + 1); j < (argc - 1); j++) {
+//            if (arrayNumbers[i] == arrayNumbers[j]) {
+//                std::cout << "Error: No duplicates are allowed." << std::endl;
+//                exit(-1);
+//            }
+//        }
+//    }
 
     std::cout << "Before:\t";
     for (int i = 0; i < argc -1; i++) {
@@ -83,7 +148,7 @@ int main(int argc, char **argv) {
     for (int i = 0; i < argc -1; i++)
         listSort.listNumbers.push_back(arrayNumbers[i]);
     timeStart = clock();
-    //Sort list
+    mergeInsertSort(listSort.listNumbers, listSort.listNumbers.begin(), listSort.listNumbers.end());
     timeEnd = clock();
     listTime = (double)(timeEnd - timeStart) / CLOCKS_PER_SEC * 1e3;
     std::list<int>::iterator itList;
@@ -99,7 +164,7 @@ int main(int argc, char **argv) {
     for (int i = 0; i < argc -1; i++)
         dequeSort.dequeNumbers.push_back(arrayNumbers[i]);
     timeStart = clock();
-    //Sort deque
+    mergeInsertSort(dequeSort.dequeNumbers, dequeSort.dequeNumbers.begin(), dequeSort.dequeNumbers.end());
     timeEnd = clock();
     dequeTime = (double)(timeEnd - timeStart) / CLOCKS_PER_SEC * 1e3;
     std::deque<int>::iterator itDeque;
