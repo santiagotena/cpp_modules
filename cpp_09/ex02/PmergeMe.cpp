@@ -94,11 +94,14 @@ void mergeInsertSort(Container& cont, Iterator low, Iterator high) {
 // Public //
 PmergeMe::PmergeMe() {}
 
-PmergeMe::~PmergeMe() {}
+PmergeMe::~PmergeMe() {
+    delete[] _arrayNumbers;
+}
 
 void    PmergeMe::initialize(int argc, char *argv[]) {
     int number;
     _arraySize = argc - 1;
+    _arrayNumbers = new int[_arraySize];
 
     for (int i = 1; i < argc; i++) {
 

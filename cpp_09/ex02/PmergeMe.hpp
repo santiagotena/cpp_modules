@@ -21,7 +21,7 @@
 
 class PmergeMe {
 private:
-    int             _arrayNumbers[10000];
+    int             *_arrayNumbers;
     int             _arraySize;
     std::set<int>   _setNumbers;
     std::list<int>  _listNumbers;
