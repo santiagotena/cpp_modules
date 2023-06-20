@@ -13,11 +13,17 @@
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
-#include <iostream>
-#include <ostream>
-#include <fstream>
-#include <map>
-#include "Date.hpp"
+# include <iostream>
+# include <ostream>
+# include <fstream>
+# include <map>
+# include "Date.hpp"
+
+# define ERR_ARGC               "Error: could not open file."
+# define ERR_REFERENCE_FILE     "Error: could not open reference file."
+# define ERR_INPUT_FILE         "Error: could not open file."
+# define ERR_NOT_POSITIVE_NUM   "Error: not a positive number."
+# define ERR_TOO_LARGE_NUM      "Error: too large a number."
 
 class Date;
 

@@ -62,7 +62,7 @@ void BitcoinExchange::_printResult(double value, double amount, Date time) {
 BitcoinExchange::BitcoinExchange(std::string referenceFile) {
     std::fstream file(referenceFile);
     if (file.fail()) {
-        std::cerr << "Error: Cannot open reference file." << std::endl;
+        std::cout << ERR_REFERENCE_FILE << std::endl;
         exit(-1);
     }
     std::string buffer;
@@ -81,7 +81,7 @@ BitcoinExchange::~BitcoinExchange() {}
 void BitcoinExchange::convert(std::string inFile) {
     std::fstream file(inFile);
     if (file.fail()) {
-        std::cerr << "Error: Cannot open reference file." << std::endl;
+        std::cout << ERR_INPUT_FILE << std::endl;
         return;
     }
     std::string buffer;
@@ -92,19 +92,19 @@ void BitcoinExchange::convert(std::string inFile) {
             date = _createDate(buffer);
             if(!date.isDateValid())
             {
-                std::cerr << "Error: bad input => " << date << std::endl;
+                std::cout << "Error: bad input => " << date << std::endl;
                 continue;
             }
             size_t pipePos = buffer.rfind(' ') + 1;
             amount = stof(buffer.substr(pipePos, buffer.length()));
             if (amount <= 0)
             {
-                std::cout << "Error: not a positive number." << std::endl;
+                std::cout << ERR_NOT_POSITIVE_NUM << std::endl;
                 continue;
             }
             else if(amount > 1000)
             {
-                std::cout << "Error: too large a number." << std::endl;
+                std::cout << ERR_TOO_LARGE_NUM << std::endl;
                 continue;
             }
             _findRate(amount, date);
