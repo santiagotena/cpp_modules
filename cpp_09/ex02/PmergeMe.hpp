@@ -19,9 +19,10 @@
 # include <list>
 # include <deque>
 
-# define ERR_ARGC           "Error: Provide more than one element to sort."
-# define ERR_ONLY_POSITIVE  "Error: Only positive integers are allowed."
-# define ERR_NO_DUPLICATES  "Error: No duplicates are allowed."
+# define ERR_ARGC                   "Error: Provide more than one element to sort."
+# define ERR_ONLY_POSITIVE          "Error: Only positive integers are allowed."
+# define ERR_NO_DUPLICATES          "Error: No duplicates are allowed."
+# define ERR_NO_CONTAINER_MATCH     "Error: Container not available."
 
 class PmergeMe {
 private:
@@ -35,24 +36,27 @@ private:
     PmergeMe    &operator=(PmergeMe &src);
 
     template <typename Container, typename Iterator>
-    void    _mergeInsertSort(Container& cont, Iterator low, Iterator high);
+    void        _mergeInsertSort(Container& cont, Iterator low, Iterator high);
     template <typename Container, typename Iterator>
-    void    _merge(Container& cont, Iterator low, Iterator mid, Iterator high);
+    void        _merge(Container& cont, Iterator low, Iterator mid, Iterator high);
 
-    void    _exitProgram();
-    int     _assignNumber(std::string element);
-    bool    _isNumberPositive(int number);
-    bool    _areDuplicatesPresent();
-    void    _displayStartingArray();
+    void        _exitProgram();
+    int         _assignNumber(std::string element);
+    bool        _isNumberPositive(int number);
+    bool        _areDuplicatesPresent();
+    void        _displayStartingArray();
+    double      _timeToSort(std::string container);
+    void        _displaySortedArray(std::string container);
+    void        _displayCompletionTime(std::string container, double sortTime);
 
 public:
     PmergeMe();
     ~PmergeMe();
 
-    void    initialize(int argc, char *argv[]);
-    void    set();
-    void    list();
-    void    deque();
+    void        initialize(int argc, char *argv[]);
+    void        set();
+    void        list();
+    void        deque();
 };
 
 #endif

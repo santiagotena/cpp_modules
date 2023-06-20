@@ -44,6 +44,33 @@ PmergeMe    &PmergeMe::operator=(PmergeMe &src) {
 }
 
 template <typename Container, typename Iterator>
+void    PmergeMe::_mergeInsertSort(Container& cont, Iterator low, Iterator high) {
+    if (low != high) {
+        if (std::distance(low, high) <= 4) {
+            // Use insertion sort for small subcontainers
+            for (Iterator i = low; i != high; ++i) {
+                typename Container::value_type key = *i;
+                Iterator j = i;
+                while (j != low && *std::prev(j) > key) {
+                    *j = *std::prev(j);
+                    --j;
+                }
+                *j = key;
+            }
+        } else {
+            // Divide the container into two halves
+            Iterator mid = low;
+            std::advance(mid, std::distance(low, high) / 2);
+            // Recursively sort the two halves
+            _mergeInsertSort(cont, low, mid);
+            _mergeInsertSort(cont, mid, high);
+            // Merge the sorted halves
+            _merge(cont, low, mid, high);
+        }
+    }
+}
+
+template <typename Container, typename Iterator>
 void    PmergeMe::_merge(Container& cont, Iterator low, Iterator mid, Iterator high) {
     Container temp;
     Iterator i = low;
@@ -74,38 +101,9 @@ void    PmergeMe::_merge(Container& cont, Iterator low, Iterator mid, Iterator h
         *it = *tempIt;
 }
 
-template <typename Container, typename Iterator>
-void    PmergeMe::_mergeInsertSort(Container& cont, Iterator low, Iterator high) {
-    if (low != high) {
-        if (std::distance(low, high) <= 4) {
-            // Use insertion sort for small subcontainers
-            for (Iterator i = low; i != high; ++i) {
-                typename Container::value_type key = *i;
-                Iterator j = i;
-                while (j != low && *std::prev(j) > key) {
-                    *j = *std::prev(j);
-                    --j;
-                }
-                *j = key;
-            }
-        } else {
-            // Divide the container into two halves
-            Iterator mid = low;
-            std::advance(mid, std::distance(low, high) / 2);
-            // Recursively sort the two halves
-            _mergeInsertSort(cont, low, mid);
-            _mergeInsertSort(cont, mid, high);
-            // Merge the sorted halves
-            _merge(cont, low, mid, high);
-        }
-    }
-}
-
-// Public //
-PmergeMe::PmergeMe() {}
-
-PmergeMe::~PmergeMe() {
+void    PmergeMe::_exitProgram() {
     delete[] _arrayNumbers;
+    exit(-1);
 }
 
 int    PmergeMe::_assignNumber(std::string element) {
@@ -125,11 +123,6 @@ bool    PmergeMe::_isNumberPositive(int number) {
         return (false);
     }
     return (true);
-}
-
-void    PmergeMe::_exitProgram() {
-    delete[] _arrayNumbers;
-    exit(-1);
 }
 
 bool    PmergeMe::_areDuplicatesPresent() {
@@ -152,6 +145,78 @@ void    PmergeMe::_displayStartingArray() {
     std::cout << std::endl;
 }
 
+double  PmergeMe::_timeToSort(std::string container) {
+    clock_t	timeStart;
+    clock_t timeEnd;
+
+    if (container == "set") {
+        timeStart = clock();
+        for (int i = 0; i < _arraySize; i++)
+            _setNumbers.insert(_arrayNumbers[i]);
+        timeEnd = clock();
+        return((double)(timeEnd - timeStart) / CLOCKS_PER_SEC * 1e3);
+    }
+    else if (container == "list") {
+        for (int i = 0; i < _arraySize; i++)
+            _listNumbers.push_back(_arrayNumbers[i]);
+        timeStart = clock();
+        _mergeInsertSort(_listNumbers, _listNumbers.begin(), _listNumbers.end());
+        timeEnd = clock();
+        return((double)(timeEnd - timeStart) / CLOCKS_PER_SEC * 1e3);
+    }
+    else if (container == "deque") {
+        for (int i = 0; i < _arraySize; i++)
+            _dequeNumbers.push_back(_arrayNumbers[i]);
+        timeStart = clock();
+        _mergeInsertSort(_dequeNumbers, _dequeNumbers.begin(), _dequeNumbers.end());
+        timeEnd = clock();
+        return((double)(timeEnd - timeStart) / CLOCKS_PER_SEC * 1e3);
+    }
+    std::cout << ERR_NO_CONTAINER_MATCH << std::endl;
+    _exitProgram();
+    return (-1);
+}
+
+void    PmergeMe::_displaySortedArray(std::string container) {
+    std::set<int>::iterator it;
+    std::cout << "After:\t";
+
+    if (container == "set") {
+        for (it = _setNumbers.begin(); it != _setNumbers.end(); it++)
+            std::cout << *it << " ";
+    }
+    else if (container == "list") {
+        std::list<int>::iterator itList;
+        for (itList = _listNumbers.begin(); itList != _listNumbers.end(); itList++)
+            std::cout << *itList << " ";
+    }
+    else if (container == "deque") {
+        std::deque<int>::iterator itDeque;
+        for (itDeque = _dequeNumbers.begin(); itDeque != _dequeNumbers.end(); itDeque++)
+            std::cout << *itDeque << " ";
+    }
+    std::cout << std::endl;
+}
+
+void    PmergeMe::_displayCompletionTime(std::string container, double sortTime) {
+    if (container == "set") {
+        std::cout << "Time to process a range of " << _arraySize << " elements with std::set\t: " << sortTime << " ms" << std::endl;
+    }
+    else if (container == "list") {
+        std::cout << "Time to process a range of " << _arraySize << " elements with std::list\t: " << sortTime << " ms" << std::endl;
+    }
+    else if (container == "deque") {
+        std::cout << "Time to process a range of " << _arraySize << " elements with std::deque\t: " << sortTime << " ms" << std::endl;
+    }
+}
+
+// Public //
+PmergeMe::PmergeMe() {}
+
+PmergeMe::~PmergeMe() {
+    delete[] _arrayNumbers;
+}
+
 void    PmergeMe::initialize(int argc, char *argv[]) {
     int number;
     _arraySize = argc - 1;
@@ -171,63 +236,25 @@ void    PmergeMe::initialize(int argc, char *argv[]) {
 }
 
 void    PmergeMe::set() {
-    clock_t	timeStart;
-    clock_t timeEnd;
-    double setTime;
+    double  sortTime;
 
-    timeStart = clock();
-    for (int i = 0; i < _arraySize; i++)
-        _setNumbers.insert(_arrayNumbers[i]);
-    timeEnd = clock();
-    setTime = (double)(timeEnd - timeStart) / CLOCKS_PER_SEC * 1e3;
-
-//    std::set<int>::iterator it;
-//    std::cout << "After:\t";
-//    for (it = _setNumbers.begin(); it != _setNumbers.end(); it++)
-//        std::cout << *it << " ";
-//    std::cout << std::endl;
-
-    std::cout << "Time to process a range of " << _arraySize << " elements with std::set\t: " << setTime << " ms" << std::endl;
+    sortTime = _timeToSort("set");
+//    _displaySortedArray("set");
+    _displayCompletionTime("set", sortTime);
 }
 
 void    PmergeMe::list() {
-    clock_t	timeStart;
-    clock_t timeEnd;
-    double listTime;
+    double  sortTime;
 
-    for (int i = 0; i < _arraySize; i++)
-        _listNumbers.push_back(_arrayNumbers[i]);
-    timeStart = clock();
-    _mergeInsertSort(_listNumbers, _listNumbers.begin(), _listNumbers.end());
-    timeEnd = clock();
-    listTime = (double)(timeEnd - timeStart) / CLOCKS_PER_SEC * 1e3;
-
-    std::list<int>::iterator itList;
-    std::cout << "After:\t";
-    for (itList = _listNumbers.begin(); itList != _listNumbers.end(); itList++)
-        std::cout << *itList << " ";
-    std::cout << std::endl;
-
-    std::cout << "Time to process a range of " << _arraySize << " elements with std::list\t: " << listTime << " ms" << std::endl;
+    sortTime = _timeToSort("list");
+    _displaySortedArray("list");
+    _displayCompletionTime("list", sortTime);
 }
 
 void    PmergeMe::deque() {
-    clock_t	timeStart;
-    clock_t timeEnd;
-    double dequeTime;
+    double  sortTime;
 
-    for (int i = 0; i < _arraySize; i++)
-        _dequeNumbers.push_back(_arrayNumbers[i]);
-    timeStart = clock();
-    _mergeInsertSort(_dequeNumbers, _dequeNumbers.begin(), _dequeNumbers.end());
-    timeEnd = clock();
-    dequeTime = (double)(timeEnd - timeStart) / CLOCKS_PER_SEC * 1e3;
-
-//    std::deque<int>::iterator itDeque;
-//    std::cout << "After:\t";
-//    for (itDeque = _dequeNumbers.begin(); itDeque != _dequeNumbers.end(); itDeque++)
-//        std::cout << *itDeque << " ";
-//    std::cout << std::endl;
-
-    std::cout << "Time to process a range of " << _arraySize << " elements with std::deque\t: " << dequeTime << " ms" << std::endl;
+    sortTime = _timeToSort("deque");
+//    _displaySortedArray("deque");
+    _displayCompletionTime("deque", sortTime);
 }
