@@ -108,44 +108,66 @@ PmergeMe::~PmergeMe() {
     delete[] _arrayNumbers;
 }
 
+int    PmergeMe::_assignNumber(std::string element) {
+    int number;
+
+    std::istringstream iss(element);
+    if (!(iss >> number)) {
+        std::cout << ERR_ONLY_POSITIVE << std::endl;
+        _exitProgram();
+    }
+    return (number);
+}
+
+bool    PmergeMe::_isNumberPositive(int number) {
+    if (number <= 0) {
+        std::cout << ERR_ONLY_POSITIVE << std::endl;
+        return (false);
+    }
+    return (true);
+}
+
+void    PmergeMe::_exitProgram() {
+    delete[] _arrayNumbers;
+    exit(-1);
+}
+
+bool    PmergeMe::_areDuplicatesPresent() {
+    for (int i = 0; i < (_arraySize - 1); i++) {
+        for (int j = (i + 1); j < (_arraySize); j++) {
+            if (_arrayNumbers[i] == _arrayNumbers[j]) {
+                std::cout << ERR_NO_DUPLICATES << std::endl;
+                return (true);
+            }
+        }
+    }
+    return (false);
+}
+
+void    PmergeMe::_displayStartingArray() {
+    std::cout << "Before:\t";
+    for (int i = 0; i < (_arraySize); i++) {
+        std::cout << _arrayNumbers[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
 void    PmergeMe::initialize(int argc, char *argv[]) {
     int number;
     _arraySize = argc - 1;
     _arrayNumbers = new int[_arraySize];
 
     for (int i = 1; i < argc; i++) {
-
-        std::istringstream iss(argv[i]);
-        if (!(iss >> number)) {
-            std::cout << ERR_ONLY_POSITIVE << std::endl;
-            delete[] _arrayNumbers;
-            exit(-1);
-        }
-
-        if (number > 0)
+        number = _assignNumber(argv[i]);
+        if (_isNumberPositive(number))
             _arrayNumbers[i -1] = number;
-        else {
-            std::cout << ERR_ONLY_POSITIVE << std::endl;
-            delete[] _arrayNumbers;
-            exit(-1);
-        }
+        else
+            _exitProgram();
     }
-        //Duplicates
-//    for (int i = 0; i < (argc - 2); i++) {
-//        for (int j = (i + 1); j < (_arraySize); j++) {
-//            if (_arrayNumbers[i] == _arrayNumbers[j]) {
-//                std::cout << ERR_NO_DUPLICATES << std::endl;
-//                delete[] _arrayNumbers;
-//                exit(-1);
-//            }
-//        }
-//    }
-
-    std::cout << "Before:\t";
-    for (int i = 0; i < (_arraySize); i++) {
-        std::cout << _arrayNumbers[i] << " ";
-    }
-    std::cout << std::endl;
+    //Duplicates
+//    if (_areDuplicatesPresent())
+//        _exitProgram();
+    _displayStartingArray();
 }
 
 void    PmergeMe::set() {

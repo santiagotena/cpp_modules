@@ -39,6 +39,12 @@ private:
     template <typename Container, typename Iterator>
     void    _merge(Container& cont, Iterator low, Iterator mid, Iterator high);
 
+    void    _exitProgram();
+    int     _assignNumber(std::string element);
+    bool    _isNumberPositive(int number);
+    bool    _areDuplicatesPresent();
+    void    _displayStartingArray();
+
 public:
     PmergeMe();
     ~PmergeMe();
