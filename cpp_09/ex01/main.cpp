@@ -14,8 +14,7 @@
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
-        std::cout << ERR_ARGC << std::endl;
-        std::cout << INPUT_EXAMPLE << std::endl;
+        std::cout << ERR_ARGC << std::endl << INPUT_EXAMPLE << std::endl;
         return (-1);
     }
     RPN rpn;
