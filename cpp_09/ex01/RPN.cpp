@@ -79,8 +79,13 @@ void    RPN::_performOperations(std::string element) {
         result = _numbers.top() - operand;
     if (element == "*")
         result = _numbers.top() * operand;
-    if (element == "/")
+    if (element == "/") {
+        if (operand == 0) {
+            std::cout << ERR_DIV_BY_ZERO << std::endl;
+            exit(-1);
+        }
         result = _numbers.top() / operand;
+    }
     _numbers.pop();
     _numbers.push(result);
 }
@@ -135,7 +140,7 @@ void    RPN::calculate(char input[]) {
         }
         number = _extractNextNumber(*it);
         if (!_isNumberValid(number))
-            exit(1);
+            exit(-1);
         _numbers.push(number);
     }
     _displayResult();
