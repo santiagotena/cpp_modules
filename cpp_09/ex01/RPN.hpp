@@ -23,6 +23,7 @@
 # define ERR_SUBS_OPERATOR          "Error: Not enough operands for operator '-'."
 # define ERR_MULT_OPERATOR          "Error: Not enough operands for operator '*'."
 # define ERR_DIV_OPERATOR           "Error: Not enough operands for operator '/'."
+# define ERR_DIV_BY_ZERO            "Error: Cannot divide by zero."
 # define ERR_INVALID_INPUT          "Error: Invalid element in input."
 # define ERR_INVALID_NUMBER         "Error: Use numbers with values between -9 and 9."
 # define ERR_NOT_ENOUGH_OPERATORS   "Error: Not enough operators provided."
