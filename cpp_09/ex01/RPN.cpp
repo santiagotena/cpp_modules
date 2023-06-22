@@ -35,6 +35,11 @@ RPN &RPN::operator=(RPN &src)
     return(*this);
 }
 
+void    RPN::_splitInput(char *input) {
+    std::string inputStr = static_cast<std::string>(input);
+    _elements = _split(inputStr, ' ');
+}
+
 std::vector<std::string>    RPN::_split(const std::string &str, char delimiter) {
     std::vector<std::string> tokens;
     std::istringstream iss(str);
@@ -44,6 +49,25 @@ std::vector<std::string>    RPN::_split(const std::string &str, char delimiter) 
         tokens.push_back(token);
     }
     return (tokens);
+}
+
+void    RPN::_processElements() {
+    int number;
+    std::vector<std::string>::iterator it;
+    for (it = _elements.begin(); it != _elements.end(); it++) {
+        if (_isOperatorNext(*it)) {
+            if (_isOperationPossible(*it)) {
+                _performOperations((*it));
+                continue;
+            }
+            else
+                exit(-1);
+        }
+        number = _extractNextNumber(*it);
+        if (!_isNumberValid(number))
+            exit(-1);
+        _numbers.push(number);
+    }
 }
 
 bool    RPN::_isOperatorNext(std::string element) {
@@ -124,24 +148,7 @@ RPN::RPN() {}
 RPN::~RPN() {}
 
 void    RPN::calculate(char input[]) {
-    int number;
-    std::string inputStr = static_cast<std::string>(input);
-    std::vector<std::string> elements = _split(inputStr, ' ');
-
-    std::vector<std::string>::iterator it;
-    for (it = elements.begin(); it != elements.end(); it++) {
-        if (_isOperatorNext(*it)) {
-            if (_isOperationPossible(*it)) {
-                _performOperations((*it));
-                continue;
-            }
-            else
-                exit(-1);
-        }
-        number = _extractNextNumber(*it);
-        if (!_isNumberValid(number))
-            exit(-1);
-        _numbers.push(number);
-    }
+    _splitInput(input);
+    _processElements();
     _displayResult();
 }

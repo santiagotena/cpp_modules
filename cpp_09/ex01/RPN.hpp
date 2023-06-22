@@ -32,12 +32,15 @@
 
 class RPN {
 private:
-    std::stack<int> _numbers;
+    std::stack<int>             _numbers;
+    std::vector<std::string>    _elements;
 
     RPN(RPN &src);
     RPN &operator=(RPN &src);
 
+    void                        _splitInput(char input[]);
     std::vector<std::string>    _split(const std::string &str, char delimiter);
+    void                        _processElements();
     bool                        _isOperatorNext(std::string element);
     bool                        _isOperationPossible(std::string element);
     void                        _performOperations(std::string element);

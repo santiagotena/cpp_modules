@@ -12,11 +12,17 @@
 
 #include "RPN.hpp"
 
+bool    isInputSizeRight(int argc) {
+    if (argc == 2)
+        return (true);
+    std::cout << ERR_ARGC << std::endl << INPUT_EXAMPLE << std::endl;
+    return (false);
+
+}
+
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        std::cout << ERR_ARGC << std::endl << INPUT_EXAMPLE << std::endl;
+    if (!isInputSizeRight(argc))
         return (-1);
-    }
     RPN rpn;
     rpn.calculate(argv[1]);
     return (0);
