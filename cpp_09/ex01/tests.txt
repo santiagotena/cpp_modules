@@ -1,0 +1,34 @@
+// Regular Tests //
+./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+42
+./RPN "7 7 * 7 -"
+42
+./RPN "1 2 * 2 / 2 * 2 4 - +"
+0
+./RPN "(1 + 1)"
+Error
+
+// Parsing errors //
+// Not enough operators ( + - * / )
+./RPN "8 9 * 9 - 9 - 9 - 4 - +"
+./RPN "8 9 * 9 - 9 - 9 - - 1 +"
+./RPN "8 * 9 - 9 - 9 - 4 - 1 +"
+./RPN "1 2 * / 2 * 2 4 - +"
+
+// Cannot divide by zero
+./RPN "1 2 * 0 / 2 * 2 4 - +"
+
+// Invalid elements
+./RPN "7 7 * a -"
+./RPN "7 7 * 7 a"
+
+// Numbers between -9 and 9
+./RPN "7 7 * -17 -"
+./RPN "7 7 * 77 -"
+
+// Not enough operators
+./RPN "7 7 * 7 - 7"
+
+// Correct number of arguments
+./RPN "7 7 * 7 -" a
+./RPN
